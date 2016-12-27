@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="home/images/baidu_logo.png" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
             </div>
             
 
@@ -60,14 +60,93 @@
             <ul class="page-breadcrumb">
                 <li><a href="">首页</a></li>
                 <span>&gt;</span>
-                <li class="active">广告位管理</li>
+                <li class="active">应用管理</li>
             </ul>
 
             <div class="list-page-content">
                 <div class="list-view">
                     
-                    
-                </div>
+                    <div class="list-meta">
+                        <div class="list-action">
+                            <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-plus" style="width: 14px; height: 14px;"></i> 添加移动应用</button>
+                        </div>
+                        <div class="list-filter">
+                            <form action="" method="GET">
+                                <div class="input-group inline-block" style="width: 250px; vertical-align: middle;">
+                                    <input class="form-control" id="keyword" name="keyword" value="" type="text" placeholder="搜索应用名称和ID" autocomplete="off" onkeydown="enter_press(item_manager.get_item_list);" style="width: 210px;font-size: 12px;">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="item_manager.get_item_list();"><i class="glyphicon glyphicon-search" style="width: 14px;height: 14px;color: #999;"></i></button>
+                                    </span>
+                                </div>
+                                
+                                <div class="dropdown inline-block" id="is_display_dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="is_display_dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 12px;padding-top: 7px;line-height: normal;padding-bottom: 7px;">
+                                        全部状态
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="is_display_dropdown_menu" style="max-height: 200px;overflow-y: auto;font-size: 12px;">
+                                        <li><a href="javascript:;">全部状态</a></li>
+                                        <li><a href="javascript:;" data-is-display="1">已通过</a></li>
+                                        <li><a href="javascript:;" data-is-display="0">审核中</a></li>
+                                        <li><a href="javascript:;" data-is-display="0">未通过</a></li>
+                                    </ul>
+                                </div>
+    
+
+                                <input type="hidden" id="status" name="status" value="" />
+                                <input type="hidden" id="order_by" name="order_by" value="" />
+                                <input type="hidden" id="direction" name="direction" value="" />
+
+                            </form>
+                        </div><!-- .list-filter -->
+                    </div><!-- .list-meta -->
+
+
+                    <table class="table table-hover" id="page_list">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th style="width:120px;">平台</th>
+                                <th style="width:150px;"><span class="sort " data-order-by="url">创建日期</span></th>
+                                <th style="width:120px;">联盟状态</th>
+                                <th style="width:150px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="page_24">
+                                <td>
+                                    <p><a href="">测试应用</a></p>
+                                    <span class="text-muted">ID: 823323</span>
+                                </td>
+                                <td>iOS</td>
+                                <td>2016-12-21</td>
+                                <td>未通过</td> 
+                                <td>
+                                    <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a> &nbsp;<span style="color: #ddd;">|</span>&nbsp;
+                                    <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
+                                </td>
+                            </tr>
+                            <tr id="page_24">
+                                <td>
+                                    <p><a href="">测试应用</a></p>
+                                    <span class="text-muted">ID: 823323</span>
+                                </td>
+                                <td>iOS</td>
+                                <td>2016-12-21</td>
+                                <td>未通过</td> 
+                                <td>
+                                    <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a> &nbsp;<span style="color: #ddd;">|</span>&nbsp;
+                                    <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <nav class="text-right">
+                        <ul class="pagination" style="margin-top: 0;"><li class='disabled'><a>&laquo;</a></li><li class='active'><a>1</a></li><li><a href='/page/index/p/2.html'>2</a></li><li><a href='/page/index/p/3.html'>3</a></li><li><a>...</a></li><li><a href='/page/index/p/5.html'>5</a></li><li><a href='/page/index/p/2.html' class='next'>&raquo;</a></li></ul>
+                    </nav>
+
+                </div><!-- .list-view -->
             </div>
 
         </div>
@@ -98,7 +177,24 @@
                     <li><a href="">APP列表</a></li>
                     <li><a href="">广告位管理</a></li>
                 </ul><!-- .sidebar-child-menu -->
-            </li>
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="#/dashboard">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    <span>报告</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="">整体报告</a></li>
+                    <li><a href="">应用报告</a></li>
+                    <li><a href="">广告位报告</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            
+
         
         </ul>
     </div><!-- .sidebar -->
@@ -109,6 +205,7 @@
     <script>
     $(document).ready(function(){
 
+        // 绑定折叠侧边菜单栏事件
         $("#toggle_navigator").click(function(){
             $(this).toggleClass('fold');
 
@@ -118,6 +215,10 @@
 
         // 侧边菜单箭头事件绑定
         $("#sidebar .sidebar-drop").click(function(){
+
+            if(!$(this).parent().hasClass('expand')){
+                $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
+            }
 
             $(this).parent().toggleClass('expand');
 
