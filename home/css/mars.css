@@ -464,3 +464,45 @@ button:hover{
     border-color: #12bdce;
 }
 
+
+
+
+/**
+ * 模态框
+ * @author 肖代敏，蔡繁荣
+ * @version 1.0.3 build 20161227
+ */
+.modal-dialog {
+    width: 500px;
+}
+.modal-content{
+    border-radius: 0;
+    border:1px solid #ddd;
+    box-shadow:none;
+}
+.modal-content .modal-header {
+    border-bottom: none;
+    padding: 20px 20px 15px 20px;
+}
+.modal-content .modal-header .modal-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.modal-content .modal-body {
+    padding: 15px 20px;
+    font-size: 14px;
+}
+.modal-content .modal-body p{
+    font-size: 13px;
+}
+.modal-content .modal-footer{
+    padding: 15px 20px 20px;
+    text-align: left;
+    border-top: none;
+}
+.modal-footer .btn{
+    padding: 6px 20px;
+    font-size: 12px;
+}
+
