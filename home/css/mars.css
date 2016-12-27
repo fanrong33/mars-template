@@ -1,0 +1,331 @@
+/**
+ * mars后台模板
+ * @author 蔡繁荣，肖代敏
+ * @version 1.0.0 build 20161226
+ */
+
+/**
+ * 主色:   #0ea6b2
+ * hover: #0d929e
+ * active: #0d828d;
+ */
+html,body{
+    margin: 0;
+    font-size: 14px;
+    font-family: arial,verdana,"Hiragino Sans GB",Hiragino Sans GB,"\5B8B\4F53";
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.navbar-mars{
+    min-height: 60px;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: #0ea6b2;
+}
+.navigator-collapse .navbar-mars {
+    position: static;
+}
+.navbar-mars .navbar-brand{
+    height: 60px;
+}
+.navbar-mars .navbar-brand>img{
+    -webkit-user-select: none;
+}
+.navbar-mars .navbar-nav>li>a{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+.navbar-mars .navbar-nav>.active>a, 
+.navbar-mars .navbar-nav>.active>a:hover, 
+.navbar-mars .navbar-nav>.active>a:focus{
+    color: #fff;
+    background-color: #0d929e;
+}
+.navbar-mars .navbar-nav>li>a:hover, 
+.navbar-mars .navbar-nav>li>a:focus {
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-mars .navbar-nav>.open>a, 
+.navbar-mars .navbar-nav>.open>a:hover, 
+.navbar-mars .navbar-nav>.open>a:focus {
+    color: #fff;
+    background-color: #0d929e;
+}
+
+.navbar-mars .dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+    background-color: #0d929e;
+    border: none;
+}
+.navbar-mars .dropdown-menu>li>a{
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: normal;
+    transition: background-color 0.3s linear;
+}
+.navbar-mars .dropdown-menu>li>a:hover, 
+.navbar-mars .dropdown-menu>li>a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #0d828d;
+}
+.navbar-mars .dropdown-menu .divider{
+    background-color: #0d828d;
+}
+
+.inverse-sidebar{
+    float: left;
+    width: 55px;
+    height: 60px;
+    margin-right: 20px;
+    margin-left: -15px;
+    background-color: #0d929e;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    color: #eee;
+
+    cursor: pointer;
+}
+.inverse-sidebar .iconfont{
+    font-size: 27px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.inverse-sidebar.fold .iconfont{
+    transform: rotate(90deg);
+}
+
+
+
+
+
+/**
+ * 侧边菜单栏
+ * @author 蔡繁荣
+ * @version 1.0.0 build 20161226
+ */
+.sidebar{
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+
+    width: 170px;
+    border: none;
+    
+    font-size: 13px;
+    background-color: #e8e8e8;
+    overflow: visible;
+}
+.navigator-collapse .sidebar{
+    width: 55px;
+}
+.sidebar-menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.sidebar-menu-item{
+    position: relative;
+    display: block;
+}
+.sidebar .sidebar-menu-item:hover {
+    background-color: #f3f5f5;   
+}
+.sidebar-menu-item a{
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    padding: 15px 0 15px 20px;
+}
+.sidebar-menu-section-title{
+    
+}
+.sidebar-menu-item i{
+    width: 16px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 10px;
+    color: #999;
+}
+.sidebar-menu-item span{
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+.navigator-collapse .sidebar .sidebar-menu-item span{
+    display: none;
+}
+
+.sidebar-menu-item.active,
+.sidebar-menu-item.active:hover{
+    background-color: #c1c1c1;
+}
+.sidebar-menu-item.active i,
+.sidebar-menu-item.active span{
+    color: #fff;
+}
+
+
+.sidebar-drop{ /* 菜单右边的箭头 */
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 37px;
+    height: 48px;
+
+    color: #ccc;
+    font-size: 12px;
+    line-height: 50px;
+    text-align: center;    
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.navigator-collapse .sidebar .sidebar-drop{
+    display: none;
+}
+.sidebar-drop i{
+    margin-right: 0;
+}
+.sidebar-menu-item.active .sidebar-drop{
+    color: #fff;
+}
+.sidebar-menu-item.expand .sidebar-drop{
+    transform: rotate(90deg);
+}
+
+.sidebar-child-menu{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: none;
+}
+.sidebar-menu-item.expand .sidebar-child-menu{
+    display: block;
+}
+.navigator-collapse .sidebar .sidebar-child-menu.expand{
+    display: none;
+}
+.sidebar-child-menu li{
+}
+.sidebar-child-menu li a{
+    display: block;
+    height: 32px;
+    padding-left: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    line-height: 32px;
+    background-color: #ddd;
+}
+.sidebar-child-menu li a:hover{
+    background-color: #f3f5f5;
+}
+
+
+.navigator-collapse .sidebar .sidebar-menu-item.active:after {
+    border-color: transparent #fff transparent;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    content: "";
+    height: 0;
+    width: 0;
+    margin-top: -5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.navigator-collapse .sidebar .sidebar-menu-item.active:hover:after {
+    display: none;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child:hover .sidebar-menu-section-title {
+    width: 225px;
+    background-color: #f3f5f5;
+    position: absolute;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child.active:hover .sidebar-menu-section-title {
+    background-color: #c1c1c1;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child:hover span{
+    display: inline;
+    padding-left: 25px;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child.expand .sidebar-child-menu{
+    display: none;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child:hover .sidebar-child-menu {
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 55px;
+    width: 170px;
+}
+.navigator-collapse .sidebar .sidebar-menu-item-has-child .sidebar-child-menu a {
+    padding-left: 20px;
+}
+
+
+
+.page-content {
+    min-width: 960px;
+    margin-left: 170px;
+    margin-top: 60px;
+}
+.navigator-collapse .page-content{
+    margin-left: 55px;
+    margin-top: 0;
+}
+
+
+.page-breadcrumb {
+    position: relative;
+    padding-left: 10px;
+    overflow: hidden;
+    background: #f7f7f7;
+    height: 50px;
+    margin-bottom: 0;
+    
+    font-size: 14px;
+    line-height: 50px;
+}
+.page-breadcrumb li{
+    float: left;
+    display: inline;
+}
+.page-breadcrumb li:first-child{
+    
+}
+.page-breadcrumb li:last-child{
+    padding: 0 20px;
+}
+.page-breadcrumb li a{
+    color: #12bdce;
+    padding: 0 20px;
+}
+.page-breadcrumb span{
+    float: left;
+    
+    font-size: 10px;
+    font-family: "Hiragino Sans GB",Hiragino Sans GB;
+    color: #888;
+    line-height: 48px;
+}
+
+
+.list-view{
+    position: relative;
+    background: none repeat scroll 0 0 #fff;
+    padding: 15px 30px;
+    padding-top: 20px;
+}
