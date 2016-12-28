@@ -16,7 +16,7 @@ html,body{
     -webkit-font-smoothing: antialiased;
 }
 html{
-    overflow: scroll;
+    overflow-y: scroll;
 }
 a{
     color: #12bdce;
