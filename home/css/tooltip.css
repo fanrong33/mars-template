@@ -1,13 +1,17 @@
+.tooltip{
+    position: relative;
+}
+.tooltip-arrow{
+    display: none;
+}
 .tooltip-inner {
     max-width: 220px;
     padding: 13px 9px;
     color: #777777;
     text-align: left;
-    text-decoration: none;
     background-color: rgb(233,249,250);
     border:1px solid rgb(199,243,246);
     border-radius: 0;
-    margin-left: 300px;
-    margin-top: 50px;
-    font-size: 12px;
+    margin-top: 20px;
+    margin-left: 30px;
 }
