@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.0 build 20161226
+ * @version 1.0.3 build 20161228
  */
 
 /**
@@ -101,22 +101,27 @@ button:hover{
 /**
  * form-horizontal
  */
+.form-view{
+    position: relative;
+
+    padding: 30px 40px 120px;
+}
 .form-horizontal .control-label{
     padding-left: 20px;
     text-align: left;
     color: #656565;
     font-weight: normal;
 }
+.form-group .text-required{
+    float: left;
+    margin-left: -15px;
+    line-height: 34px;
+}
 .form-horizontal .help-block{
     font-size: 13px;
     color: #999;
     margin-top: 8px;
     margin-bottom: 8px;
-}
-.form-view{
-    position: relative;
-
-    padding: 30px 40px 120px;
 }
 .form-submit-section {
     margin: 0;
