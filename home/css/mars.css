@@ -55,6 +55,18 @@ a:hover, a:focus{
     display: inline-block;
 }
 
+@keyframes yellowfade {
+    from {
+        background: #ffffaa;
+    }
+    to {
+        background: transparent;
+    }
+}
+
+.highlight-fade {
+    animation: yellowfade 1.2s;
+}
 
 /* mars主题按钮样式 */
 input,button,select,textarea{ outline:0; font-size: 12px;}
@@ -78,6 +90,12 @@ button:hover{
 .btn-primary:active{
     border-color: #1cb6bb #27afa8 #16bbc9;
     background: #12bdce;
+}
+.btn-primary.disabled, .btn-primary[disabled],
+.btn-primary.disabled:active, .btn-primary[disabled]:active,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover{
+    background-color: #12bdce;
+    border-color: #12bdce;
 }
 .btn-link{
     color: #21cada;
