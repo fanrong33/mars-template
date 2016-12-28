@@ -21,13 +21,36 @@ html{
 a{
     color: #12bdce;
 }
-
+a:hover, a:focus{
+    color: #0b7983;
+}
 
 /**
  * 原子类
  * @author 蔡繁荣
  * @version 1.0.0 build 20161227
  */
+.mt10{margin-top: 10px;}
+.mt15{margin-top: 15px;}
+.mt20{margin-top: 20px;}
+.mb0{margin-bottom: 0 !important;}
+.mb5{margin-bottom: 5px;}
+.mb10{margin-bottom: 10px;}
+.mb15{margin-bottom: 15px;}
+.mb20{margin-bottom: 20px;}
+.ml10{margin-left: 10px;}
+.ml15{margin-left: 15px;}
+.ml20{margin-left: 20px;}
+.mr5{margin-right: 5px;}
+.mr8{margin-right: 8px;}
+.mr10{margin-right: 10px;}
+.mr15{margin-right: 15px;}
+.mr20{margin-right: 20px;}
+.pl0{padding-left: 0;}
+.pr0{padding-right: 0;}
+
+.text-required{ color: #ca0808; }
+
 .inline-block{
     display: inline-block;
 }
@@ -56,10 +79,63 @@ button:hover{
     border-color: #1cb6bb #27afa8 #16bbc9;
     background: #12bdce;
 }
+.btn-link{
+    color: #21cada;
+}
+.btn-link:hover{
+    color: #0b7983;
+}
 
 .form-control{
     border-radius: 0;
+    border-color: #ddd;
+
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
+.form-control:focus{
+    border-color: #72cfd8;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+}
+/**
+ * form-horizontal
+ */
+.form-horizontal .control-label{
+    padding-left: 20px;
+    text-align: left;
+    color: #656565;
+    font-weight: normal;
+}
+.form-horizontal .help-block{
+    font-size: 13px;
+    color: #999;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.form-view{
+    position: relative;
+
+    padding: 30px 40px 120px;
+}
+.form-submit-section {
+    margin: 0;
+    padding: 30px 30px 35px;
+    border-top: 1px solid #eaeaea;
+    background: #fff;
+    position: relative;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-left: -40px;
+}
+.form-submit-section .btn {
+    padding: 6px 50px;
+}
+
 .dropdown-menu{
     border-radius: 0;
 }
@@ -425,6 +501,7 @@ button:hover{
     font-weight: normal;
     padding: 10px 8px;
     border-bottom: 1px solid #eee;
+    color: #555;
 }
 .table>tbody>tr>td{
     border-bottom: 1px solid #f0f0f0;
@@ -505,4 +582,8 @@ button:hover{
     padding: 6px 20px;
     font-size: 12px;
 }
+
+
+
+
 
