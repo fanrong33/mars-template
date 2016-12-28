@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.3 build 20161228
+ * @version 1.0.5 build 20161228
  */
 
 /**
@@ -607,6 +607,43 @@ button:hover{
 }
 
 
+/**
+ * 面板
+ * @author 肖代敏，蔡繁荣
+ * @version 1.0.0 build 20161228
+ */
+.tooltip{
+    position: relative;
+}
+.tooltip-arrow{
+    display: none;
+}
+.tooltip-inner {
+    max-width: 220px;
+    padding: 13px 9px;
+    color: #777777;
+    text-align: left;
+    background-color: rgb(233,249,250);
+    border:1px solid rgb(199,243,246);
+    border-radius: 0;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+
+/**
+ * 面板
+ * @author 肖代敏，蔡繁荣
+ * @version 1.0.0 build 20161228
+ */
+.panel{
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.panel-body{
+    padding: 15px 20px;
+}
 
 
 
