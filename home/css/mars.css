@@ -646,4 +646,23 @@ button:hover{
 }
 
 
+/**
+ * 警告框
+ * @author 肖代敏
+ * @version 1.0.0 build 20161228
+ */
+.alert {
+    border: none;
+    border-radius: 0;
+    padding: 5px 20px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #656565;
+}
+.alert-danger {
+    background-color: #fff5d9;
+}
+.alert-success {
+    background-color: #f3fbfd;
+}
 
