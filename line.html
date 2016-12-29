@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsUI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="home/css/mars.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body><!-- action: .navigator-collapse -->
+    
+    <nav class="navbar navbar-default navbar-mars navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+            <div class="inverse-sidebar" id="toggle_navigator">
+                <i class="iconfont icon-hamburger"></i>
+            </div>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
+            </div>
+            
+
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">fanrong33 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">账号管理</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    <div class="page-container">
+        <div class="page-content">
+
+            <ul class="page-breadcrumb">
+                <li><a href="">首页</a></li>
+                <span>&gt;</span>
+                <li class="active">折线图</li>
+            </ul>
+
+            <div class="list-view">
+
+                <div id="chart" style="width:980px;height:300px"></div><!--     必须设置宽和高 -->
+                
+            </div>
+    
+
+        </div>
+    </div><!-- .page-container -->
+
+    
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+        
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-section-title" href="dashboard.html">
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <span>仪表盘</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="index.html">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <span>表单</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="index.html">表格</a></li>
+                    <li><a href="form.html">表单</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="panel.html">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>基础组件</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="panel.html">面板</a></li>
+                    <li><a href="progress.html">进度条</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="modal.html">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <span>操作反馈</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="modal.html">模态框</a></li>
+                    <li><a href="tooltip.html">工具提示</a></li>
+                    <li><a href="alert.html">警告框</a></li>
+                    <li><a href="toast.html">吐司</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+                <a class="sidebar-menu-section-title" href="line.html">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    <span>报表</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="line.html">折线图</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="login.html">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>页面</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="login.html">登录页面</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+
+        
+        </ul>
+    </div><!-- .sidebar -->
+    
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js?_v_=1479966781202"></script>
+    <!-- 
+    <script src="http://cdn.bootcss.com/echarts/3.0.0/echarts.common.min.js"></script> 
+    -->
+    <script>
+    $(document).ready(function(){
+
+        // 绑定折叠侧边菜单栏事件
+        $("#toggle_navigator").click(function(){
+            $(this).toggleClass('fold');
+
+            $("body").toggleClass('navigator-collapse');
+        });
+
+
+        // 侧边菜单箭头事件绑定
+        $("#sidebar .sidebar-drop").click(function(){
+
+            if(!$(this).parent().hasClass('expand')){
+                $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
+            }
+
+            $(this).parent().toggleClass('expand');
+
+        });
+
+
+
+        // 第二个参数可以指定前面引入的主题
+        var chart = echarts.init(document.getElementById('chart'), 'macarons');
+        option = {
+            color: [
+                '#66c3f9', '#acdd96', '#ffd155', '#fd2222'
+            ],
+            title : {
+                text: '趋势图',
+                // subtext: '纯属虚构'
+                textStyle: {
+                    color: '#12bdce',
+                    fontSize: 14
+                },
+                top: 0
+            },
+            grid: {
+                left: '5%',
+                right: '3%',
+                bottom: '10%'
+            },
+            tooltip : {
+                trigger: 'axis',
+                borderColor: 'red'
+            },
+            legend: {
+                data:['展现','点击'],
+                x: 'right'
+                //right: '20px'
+            },
+            toolbox: {
+                show : false,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#555'
+                        }
+                    },
+                    data : ["2016-12-01", "2016-12-02", "2016-12-03", "2016-12-04", "2016-12-05", "2016-12-06", "2016-12-07"]
+                }
+            ],
+            yAxis : [
+                {
+                    // name: '降水量',
+                    type : 'value',
+                    splitNumber: 4,
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: ['#f0f0f0'],
+                            type: 'dashed'
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#888'
+                        }
+                    },
+                    boundaryGap: ['0', '15%']
+                }
+            ],
+            series : [
+                {
+                    name: '展现',
+                    type: 'line',
+                    symbol: 'emptyCircle',
+                    symbolSize: 3,
+                    showSymbol: false,
+                    smooth: true,
+                    data: [30, 53, 82, 105, 96,37 ,19]
+                },
+                {
+                    name: '点击',
+                    type: 'line',
+                    symbol: 'emptyCircle',
+                    symbolSize: 3,
+                    showSymbol: false,
+                    smooth: true,
+                    data: [10, 23, 14, 25, 16,7 ,3]
+                }
+            ]
+        };
+        setTimeout(function(){
+            chart.setOption(option);
+        }, 200);
+    });
+    </script>
+</body>
+</html>
