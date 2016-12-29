@@ -193,7 +193,7 @@
         var chart = echarts.init(document.getElementById('chart'), 'macarons');
         option = {
             color: [
-                '#66c3f9', '#acdd96', '#ffd155', '#fd2222'
+                '#66c3f9', '#acdd96', '#ffd155', '#fd2222' // 调色盘颜色列表
             ],
             title : {
                 text: '趋势图',
@@ -205,16 +205,15 @@
                 top: 0
             },
             grid: {
-                left: '5%',
+                left: '5%',  // grid 组件离容器左侧的距离
                 right: '3%',
                 bottom: '10%'
             },
             tooltip : {
                 trigger: 'axis',
-                borderColor: 'red'
             },
-            legend: {
-                data:['展现','点击'],
+            legend: { // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示
+                data:['展现','点击'], 
                 x: 'right'
             },
             toolbox: {
@@ -227,17 +226,16 @@
                     saveAsImage : {show: true}
                 }
             },
-            calculable : true,
             xAxis : [
                 {
                     type : 'category',
                     boundaryGap : false,
-                    splitLine: {
-                        show: false
+                    splitLine: { // 坐标轴在 grid 区域中的分隔线
+                        show: false 
                     },
-                    axisLine: {
+                    axisLine: { // 坐标轴刻度标签的相关设置
                         lineStyle: {
-                            color: '#555'
+                            color: '#555' 
                         }
                     },
                     data : ["2016-12-01", "2016-12-02", "2016-12-03", "2016-12-04", "2016-12-05", "2016-12-06", "2016-12-07"]
@@ -247,20 +245,20 @@
                 {
                     // name: '降水量',
                     type : 'value',
-                    splitNumber: 4,
-                    splitLine: {
+                    splitNumber: 4, // 坐标轴的分割段数
+                    splitLine: { // 坐标轴在 grid 区域中的分隔线
                         show: true,
                         lineStyle: {
                             color: ['#f0f0f0'],
                             type: 'dashed'
                         }
                     },
-                    axisLine: {
+                    axisLine: { // 坐标轴刻度标签的相关设置
                         lineStyle: {
                             color: '#888'
                         }
                     },
-                    boundaryGap: ['0', '15%']
+                    boundaryGap: ['0', '15%'] // 坐标轴两边留白策略
                 }
             ],
             series : [
@@ -277,7 +275,7 @@
                             position: 'top'
                         }
                     },
-                    data: [30, 53, 82, 105, 96,37 ,19]
+                    data: [30, 53, 82, 105, 196, 227, 399]
                 },
                 {
                     name: '点击',
@@ -286,7 +284,7 @@
                     symbolSize: 3,
                     showSymbol: true,
                     smooth: true,
-                    data: [10, 23, 14, 25, 16,7 ,3]
+                    data: [10, 23, 14, 25, 56, 76, 156]
                 }
             ]
         };
