@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
     <link rel="stylesheet" href="home/css/mars.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,101 +56,48 @@
 
     
     <div class="page-container">
-        
         <div class="page-content">
 
             <ul class="page-breadcrumb">
                 <li><a href="">首页</a></li>
                 <span>&gt;</span>
-                <li class="active">表单</li>
+                <li class="active">吐司</li>
             </ul>
 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12" style="padding: 20px 30px;">
 
-            <div class="form-view">
-                
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-xs-2 control-label">代码位名称：</label>
-                        <div class="col-xs-3 pl0">
-                            <span class="text-required">*</span>
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="">
-                        </div>
-                        <div class="col-xs-3 pl0">
-                            <div class="help-block">少于40个字符</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-xs-2 control-label">所属应用：</label>
-                        <div class="col-xs-3 pl0">
-                            <select class="form-control" name="" id="">
-                                <option value="">测试应用(iOS)</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 pl0">
-                            <div class="help-block">指定代码位所属应用</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0">
-                            <textarea class="form-control" name="remark" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-10  pl0">
-                            <div class="checkbox">
-                                <label><input type="checkbox"> 记住我</label>
+                        
+                        <div id="toast-container" class="toast-top-right1" aria-live="polite" role="alert">
+
+
+                            <div class="toast toast-success" style="display: block;">
+                                <div class="toast-message">应用创建成功</div>
                             </div>
+
+                            <div class="toast toast-info" style="display: block;">
+                                <div class="toast-message">注意：请填写以下信息</div>
+                            </div>
+
+                            <div class="toast toast-warning" style="display: block;">
+                                <div class="toast-message">删除后不可恢复</div>
+                            </div>
+
+                            <div class="toast toast-error" style="display: block;">
+                                <div class="toast-message">密码错误，请稍后重试</div>
+                            </div>
+
                         </div>
+
+
                     </div>
-                    <!-- <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10  pl0">
-                            <button type="submit" class="btn btn-primary">添加</button>
-                        </div>
-                    </div> -->
-
-
-                    <div class="form-submit-section">
-                        <button type="submit" class="btn btn-primary" data-loading-text="保存中...">添加</button>
-                        <button type="button" class="btn btn-link">取消</button>
-                    </div>
-                </form>
-
+                </div>
             </div>
 
-        </div>
-        
-        
+            
+
+        </div><!-- .page-content -->
     </div><!-- .page-container -->
 
     
@@ -162,7 +110,7 @@
                     <span>仪表盘</span>
                 </a>
             </li>
-            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
                 <a class="sidebar-menu-section-title" href="index.html">
                     <i class="glyphicon glyphicon-th-list"></i>
                     <span>表单</span>
@@ -190,7 +138,7 @@
                     <li><a href="progress.html">进度条</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
-            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
                 <a class="sidebar-menu-section-title" href="modal.html">
                     <i class="glyphicon glyphicon-ok"></i>
                     <span>操作反馈</span>
@@ -241,6 +189,8 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="home/js/toastr/toastr.css">
+    <script src="home/js/toastr/toastr.min.js"></script>
     <script>
     $(document).ready(function(){
 
