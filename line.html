@@ -216,7 +216,6 @@
             legend: {
                 data:['展现','点击'],
                 x: 'right'
-                //right: '20px'
             },
             toolbox: {
                 show : false,
@@ -270,8 +269,14 @@
                     type: 'line',
                     symbol: 'emptyCircle',
                     symbolSize: 3,
-                    showSymbol: false,
+                    showSymbol: true,
                     smooth: true,
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top'
+                        }
+                    },
                     data: [30, 53, 82, 105, 96,37 ,19]
                 },
                 {
@@ -279,7 +284,7 @@
                     type: 'line',
                     symbol: 'emptyCircle',
                     symbolSize: 3,
-                    showSymbol: false,
+                    showSymbol: true,
                     smooth: true,
                     data: [10, 23, 14, 25, 16,7 ,3]
                 }
