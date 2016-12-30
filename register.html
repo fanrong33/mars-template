@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     
-    <link rel="stylesheet" href="home/css/mars.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+    <link rel="stylesheet" href="home/js/toastr/toastr.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,32 +56,32 @@
                         </div>
                         <div class="panel-body">
 
-                            <form class="form-horizontal mt10" role="form">
+                            <form class="form-horizontal mt10" id="register_form" method="post" role="form">
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">用户名:</label>
                                     <div class="col-sm-5">
-                                        <input type="email" class="form-control" id="" placeholder="用户名">
+                                        <input type="text" class="form-control" id="" name="username" placeholder="用户名">
                                         <div class="help-block">6~18个字符，可使用字母、数字、下划线，需以字母开头</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">设置密码:</label>
                                     <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="" placeholder="密码">
+                                        <input type="password" class="form-control" id="" name="password" placeholder="密码">
                                         <div class="help-block">6~16个字符，区分大小写</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">确认密码:</label>
                                     <div class="col-sm-5">
-                                        <input type="password" class="form-control" id="" placeholder="确认密码">
+                                        <input type="password" class="form-control" id="" name="confirm_password" placeholder="确认密码">
                                         <div class="help-block">请再次填写密码</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">电子邮箱:</label>
                                     <div class="col-sm-5">
-                                        <input type="email" class="form-control" id="" placeholder="电子邮箱">
+                                        <input type="email" class="form-control" id="" name="email" placeholder="电子邮箱">
                                         <div class="help-block">用以接收激活确认邮件等有关您账户的重要信息</div>
                                     </div>
                                 </div>
@@ -104,5 +106,32 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="home/js/toastr/toastr.min.js"></script>
+    <script src="home/js/ajaxForm.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#register_form").submit(function(){
+                $(this).ajaxSubmit({
+                    type: "POST",
+                    data: $("#register_form").serialize(),
+                    dataType: "json",
+                    beforeSubmit: function(){
+                    },
+                    success: function(json){
+                        if(json.status == 1){
+                            toastr.success(json.info);
+                            setTimeout(function(){
+                                location.href = '/passport/login.html';
+                            }, 1500);
+                        }else{
+                            toastr.error(json.info);
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>

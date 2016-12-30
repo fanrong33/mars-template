@@ -7,8 +7,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     
-    <link rel="stylesheet" href="home/css/mars.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+    <link rel="stylesheet" href="home/js/toastr/toastr.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -87,7 +88,7 @@
                 <div class="panel panel-default panel-login">
                     <div class="panel-body">
                         
-                        <form role="form" method="post">
+                        <form role="form" id="login_form" method="post">
                             <h5>账号登录</h5>
                             <div class="form-group">
                                 <label for="username">登录名：</label>
@@ -123,5 +124,32 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="home/js/toastr/toastr.min.js"></script>
+    <script src="home/js/ajaxForm.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#login_form").submit(function(){
+                $(this).ajaxSubmit({
+                    type: "POST",
+                    data: $("#login_form").serialize(),
+                    dataType: "json",
+                    beforeSubmit: function(){
+                    },
+                    success: function(json){
+                        if(json.status == 1){
+                            toastr.success(json.info);
+                            setTimeout(function(){
+                                location.href = '/dashboard/index.html';
+                            }, 1500);
+                        }else{
+                            toastr.error(json.info);
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>
