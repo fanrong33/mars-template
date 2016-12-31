@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsUI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+    <link rel="stylesheet" href="home/js/toastr/toastr.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        /* 登录页面专用样式 */
+        .navbar-mars{
+            background-color: transparent;
+        }
+        .login-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            
+            width: 100%;
+            height: 600px;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left top;
+        }
+        .panel-login{
+            position: absolute;
+            top: 0;
+            right: -50px;
+            z-index: 2;
+
+            margin-top: 120px;
+            
+            width: 320px;
+            border-radius: 3px;
+            border: none;
+        }
+        .panel-login h5{
+            margin-bottom: 10px;
+            margin-top: 15px; 
+            border-bottom: 1px solid #f0f0f0; 
+            padding-bottom: 10px;
+        }
+        .panel-login label{
+            font-size: 12px;
+        }
+        .panel-login .checkbox label{
+            line-height: 20px;
+        }
+        .login-links{
+            font-size: 13px;
+            text-align: right;
+        }
+        .jumbotron{
+            position: absolute;
+            z-index: 2;
+
+            margin-top: 170px;
+            padding-top: 0;
+            margin-left: 80px;
+            background-color: transparent;
+            font-family: "Helvetica Neue", HelveticaNeue, Helvetica, TeXGyreHeros, FreeSans, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
+        }
+        .jumbotron h1{
+            margin-bottom: 20px;
+            color: #fff;
+            /*font-size: 48px;*/
+            font-size: 38px;
+            font-family: Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+        }
+        .jumbotron p{
+            color: #fff;
+            /*font-size: 24px;*/
+            font-size: 20px;
+            font-family: Hiragino Sans GB,STHeiti,Microsoft Yahei,sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body><!-- action: .navigator-collapse -->
+    
+    <nav class="navbar navbar-mars navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
+            </div>
+            
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    <div class="container-fluid">
+        <div class="row" style="height: 600px; position: relative;">
+
+            <div class="login-bg" style="background-image: url(https://ppcdn.500px.org/55510952/f6e0846ee13b030e638e023ac270f1c03c80a9d2/2048.jpg);height:600px;"></div>
+
+            <div class="col-xs-7">
+                <div class="jumbotron">
+                  <!-- <h1>Home to everyone’s best photos</h1>
+                  <p>Showcase your work, license amazing photos, and stay inspired.</p> -->
+                  <h1>记住一切</h1>
+                  <p>现代生活喧嚣繁杂，印象笔记帮你轻松简化一切，让生活更美好，让工作更省力。</p>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                
+                <div class="panel panel-default panel-login">
+                    <div class="panel-body">
+                        
+                        <form role="form" id="login_form" method="post">
+                            <h5>账号登录</h5>
+                            <div class="form-group">
+                                <label for="username">登录名：</label>
+                                <input type="email" class="form-control" id="username" name="username" placeholder="邮箱/用户名">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">登录密码：</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="登录密码">
+                            </div>
+                            <div class="checkbox">
+                                <input type="hidden" name="remeber_me" value="0">
+                                <label>
+                                    <input type="checkbox" name="remeber_me" value="1"> 记住我
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mb15">登 录</button>
+                            <div class="login-links">
+                                <a class="mr10" href="">忘记密码</a>
+                                <a href="register.html">免费注册</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div><!-- .panel -->
+                
+            </div>
+        </div>
+    </div>
+
+
+    <footer>© 2016 MarsUI 版权所有</footer>
+    
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="home/js/toastr/toastr.min.js"></script>
+    <script src="home/js/ajaxForm.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#login_form").submit(function(){
+                $(this).ajaxSubmit({
+                    type: "POST",
+                    data: $("#login_form").serialize(),
+                    dataType: "json",
+                    beforeSubmit: function(){
+                    },
+                    success: function(json){
+                        if(json.status == 1){
+                            toastr.success(json.info);
+                            setTimeout(function(){
+                                location.href = '/dashboard/index.html';
+                            }, 1500);
+                        }else{
+                            toastr.error(json.info);
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
