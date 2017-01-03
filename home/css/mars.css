@@ -680,9 +680,9 @@ footer{
  * @author 肖代敏，蔡繁荣
  * @version 1.0.0 build 20161228
  */
-.tooltip{
+/*.tooltip{
     position: relative;
-}
+}*/
 .tooltip-arrow{
     display: none;
 }
@@ -694,8 +694,8 @@ footer{
     background-color: rgb(233,249,250);
     border:1px solid rgb(199,243,246);
     border-radius: 0;
-    margin-top: 20px;
-    margin-left: 30px;
+    /*margin-top: 20px;*/
+    /*margin-left: -23px;*/
 }
 
 
