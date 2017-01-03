@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.7 build 20161230
+ * @version 1.0.8 build 20170103
  */
 
 /**
@@ -15,7 +15,7 @@ html,body{
     font-family: arial,verdana,"Hiragino Sans GB",Hiragino Sans GB,"\5B8B\4F53";
     -webkit-font-smoothing: antialiased;
 }
-html{
+body{
     overflow-y: scroll;
 }
 a{
@@ -621,7 +621,7 @@ footer{
 /**
  * 模态框
  * @author 肖代敏，蔡繁荣
- * @version 1.0.3 build 20161227
+ * @version 1.0.5 build 20161227
  */
 .modal-dialog {
     width: 500px;
@@ -649,7 +649,7 @@ footer{
 }
 .modal-content .modal-footer{
     padding: 15px 20px 20px;
-    text-align: left;
+    text-align: right;
     border-top: none;
 }
 .modal-footer .btn{
