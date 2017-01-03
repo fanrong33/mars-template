@@ -72,7 +72,7 @@
                             <a class="btn btn-primary" href="form.html"><i class="glyphicon glyphicon-plus" style="width: 14px; height: 14px;"></i> 添加移动应用</a>
                         </div>
                         <div class="list-filter">
-                            <form action="" method="GET">
+                            <form id="form" action="" method="GET">
                                 <div class="input-group inline-block" style="width: 250px; vertical-align: middle;">
                                     <input class="form-control" id="keyword" name="keyword" value="" type="text" placeholder="搜索应用名称和ID" autocomplete="off" onkeydown="enter_press(item_manager.get_item_list);" style="width: 210px;font-size: 12px;">
                                     <span class="input-group-btn">
@@ -80,16 +80,16 @@
                                     </span>
                                 </div>
                                 
-                                <div class="dropdown inline-block" id="is_display_dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="is_display_dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 12px;padding-top: 7px;line-height: normal;padding-bottom: 7px;">
+                                <div class="dropdown inline-block" id="status_dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="status_dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 12px;padding-top: 7px;line-height: normal;padding-bottom: 7px;">
                                         全部状态
                                         <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu" aria-labelledby="is_display_dropdown_menu" style="max-height: 200px;overflow-y: auto;font-size: 12px;">
+                                    <ul class="dropdown-menu" aria-labelledby="status_dropdown_menu" style="max-height: 200px;overflow-y: auto;font-size: 12px;">
                                         <li><a href="javascript:;">全部状态</a></li>
-                                        <li><a href="javascript:;" data-is-display="1">已通过</a></li>
-                                        <li><a href="javascript:;" data-is-display="0">审核中</a></li>
-                                        <li><a href="javascript:;" data-is-display="0">未通过</a></li>
+                                        <li><a href="javascript:;" data-status="1">已通过</a></li>
+                                        <li><a href="javascript:;" data-status="0">审核中</a></li>
+                                        <li><a href="javascript:;" data-status="-1">未通过</a></li>
                                     </ul>
                                 </div>
     
@@ -108,7 +108,7 @@
                             <tr>
                                 <th>名称</th>
                                 <th style="width:120px;">平台</th>
-                                <th style="width:150px;"><span class="sort " data-order-by="url">创建日期</span></th>
+                                <th style="width:150px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
                                 <th style="width:120px;">联盟状态</th>
                                 <th style="width:150px;">操作</th>
                             </tr>
@@ -270,7 +270,69 @@
         });
 
 
+
+        // group dropdown click event
+        $("#status_dropdown").delegate("a", 'click', function(){
+            var status_text = $(this).text();
+            var status      = $(this).data('status');
+
+            $("#status_dropdown button").html(status_text+' <span class="caret"></span>');
+            $("#status").val(status);
+            $("#form").submit();
+        });
+
+
+        // bind sort event
+        $("#page_list").delegate('.sort', 'click', function(){
+            var $this = $(this);
+            if($this.hasClass('desc')){
+                $this.removeClass('desc').addClass('asc');
+                // asc
+                $("#order_by").val($this.data('order-by'));
+                $("#direction").val('asc');
+            }else{
+                // if($this.hasClass('asc')){
+                //     $this.removeClass('asc');
+                //     // default
+                //     $("#order_by").val('');
+                //     $("#direction").val('');
+                // }else{
+                    $this.removeClass('asc').addClass('desc');
+                    // desc
+                    $("#order_by").val($this.data('order-by'));
+                    $("#direction").val('desc');
+                // }
+            }
+
+            $("#form").submit();
+        });
+
+
+        if(window.location.hash){
+            $(window.location.hash).addClass('highlight-fade');
+        }
     });
+
+
+    function delete_page(id){
+            if(confirm('确定删除？')){
+                $.ajax({
+                    type: "POST",
+                    url: "/page/delete",
+                    data: { page_id: id },
+                    dataType: "json",
+                    success: function(json){
+                        if(json.status == 1){
+                            $("#page_"+id).remove();
+
+                            toastr.success(json.info);
+                        }else{
+                            toastr.error(json.info);
+                        }
+                    }
+                });
+            }
+        }
     </script>
 </body>
 </html>
