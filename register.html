@@ -114,7 +114,6 @@
             $("#register_form").submit(function(){
                 $(this).ajaxSubmit({
                     type: "POST",
-                    data: $("#register_form").serialize(),
                     dataType: "json",
                     beforeSubmit: function(){
                     },

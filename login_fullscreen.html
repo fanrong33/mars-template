@@ -165,7 +165,6 @@
             $("#login_form").submit(function(){
                 $(this).ajaxSubmit({
                     type: "POST",
-                    data: $("#login_form").serialize(),
                     dataType: "json",
                     beforeSubmit: function(){
                     },
