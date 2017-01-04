@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.9 build 20170103
+ * @version 1.0.10 build 20170105
  */
 
 /**
@@ -678,7 +678,7 @@ footer{
 /**
  * 工具提示
  * @author 肖代敏，蔡繁荣
- * @version 1.0.0 build 20161228
+ * @version 1.0.1 build 20170104
  */
 .tooltip-arrow{
     display: none;
@@ -696,15 +696,22 @@ footer{
 .tooltip-help{
     width: 15px;
     height: 15px;
-    border: 1px solid #abcdef;
+    border: 1px solid #12bfcd;
     border-radius: 50%;
     padding: 0 !important;
     text-decoration: none;
     display: inline-block;
     text-align: center;
     line-height: normal;
-    font-weight: bold;
+    color: #12bfcd;
     font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+
+ 
+    cursor: pointer;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
 }
 
 

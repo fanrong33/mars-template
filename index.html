@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="home/css/mars.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1x0nisnwsrurqkt9.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_q8969xdo3baz6w29.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -108,8 +110,11 @@
                             <tr>
                                 <th>名称</th>
                                 <th style="width:120px;">平台</th>
-                                <th style="width:150px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
-                                <th style="width:120px;">联盟状态</th>
+                                <th style="width:140px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
+                                <th style="width:100px;">
+                                    联盟状态 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="right" title="代表应用是否可以正常请求百度联盟广告。初始状态为待审核，审核通过后即可正常请求百度联盟广告。">?</i>
+                                </th>
+                                <th style="width:100px;">启用状态</th>
                                 <th style="width:150px;">操作</th>
                             </tr>
                         </thead>
@@ -119,22 +124,24 @@
                                     <p><a href="">测试应用</a></p>
                                     <span class="text-muted">ID: 823323</span>
                                 </td>
-                                <td>iOS</td>
+                                <td><i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i></td>
                                 <td>2016-12-21</td>
-                                <td>未通过</td> 
+                                <td>未通过 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="bottom" title="拒绝理由：应用信息填写不完整或财务信息未通过审核，请在财务信息通过审核后完善信息，重新编辑发起联盟审核。">?</i></td> 
+                                <td><input type="checkbox" class="j_switch" data-offer-id="600004" checked ></td>
                                 <td>
                                     <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a> &nbsp;<span style="color: #ddd;">|</span>&nbsp;
                                     <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
                                 </td>
                             </tr>
-                            <tr id="page_24">
+                            <tr id="page_25">
                                 <td>
                                     <p><a href="">测试应用</a></p>
                                     <span class="text-muted">ID: 823323</span>
                                 </td>
-                                <td>iOS</td>
+                                <td><i class="iconfont icon-android" style="font-size: 22px;color: #97C03C;"></i></td>
                                 <td>2016-12-21</td>
                                 <td>未通过</td> 
+                                <td><input type="checkbox" class="j_switch" data-offer-id="600004"></td>
                                 <td>
                                     <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a> &nbsp;<span style="color: #ddd;">|</span>&nbsp;
                                     <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
@@ -247,6 +254,7 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
     <script>
     $(document).ready(function(){
 
@@ -306,6 +314,48 @@
 
             $("#form").submit();
         });
+
+
+        $('.tooltip-help').tooltip();
+
+
+        // var checkbox_elem = document.querySelector('.j_switch');
+        // var switchery = new Switchery(checkbox_elem, { size: 'small' });
+
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.j_switch'));
+
+        elems.forEach(function(checkbox_elem) {
+          var switchery = new Switchery(checkbox_elem, { color: '#12bdce', size: 'small' });
+        });
+
+        $(document).delegate(".j_switch", "change", function(){
+
+            var offer_id   = $(this).data('offer-id');
+            var is_actived = 0;
+
+            var checkbox_elem = $(this).get(0);
+            if(checkbox_elem.checked){
+                is_actived = 1;
+            }
+
+            var params = { };
+            params['offer_id']   = offer_id;
+            params['is_actived'] = is_actived;
+            $.ajax({
+                type: "POST",
+                url: "/offer/toggle_status.html",
+                data: params,
+                dataType: "json",
+                success: function(json){
+                    if(json.status == 1){
+
+                    }else{
+                        toastr.error(json.info);
+                    }
+                }
+            });
+        });
+
 
 
         if(window.location.hash){
