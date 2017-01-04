@@ -676,13 +676,10 @@ footer{
 
 
 /**
- * 面板
+ * 工具提示
  * @author 肖代敏，蔡繁荣
  * @version 1.0.0 build 20161228
  */
-/*.tooltip{
-    position: relative;
-}*/
 .tooltip-arrow{
     display: none;
 }
@@ -694,8 +691,20 @@ footer{
     background-color: rgb(233,249,250);
     border:1px solid rgb(199,243,246);
     border-radius: 0;
-    /*margin-top: 20px;*/
-    /*margin-left: -23px;*/
+}
+
+.tooltip-help{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #abcdef;
+    border-radius: 50%;
+    padding: 0 !important;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    line-height: normal;
+    font-weight: bold;
+    font-size: 10px;
 }
 
 
