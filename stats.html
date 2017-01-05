@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsUI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_q8969xdo3baz6w29.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body><!-- action: .navigator-collapse -->
+    
+    <nav class="navbar navbar-default navbar-mars navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+            <div class="inverse-sidebar" id="toggle_navigator">
+                <i class="iconfont icon-hamburger"></i>
+            </div>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
+            </div>
+            
+
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">fanrong33 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">账号管理</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    <div class="page-container">
+        <div class="page-content">
+
+            <div style="position: relative;">
+                <ul class="page-breadcrumb">
+                    <li><a href="/">首页</a></li>
+                    <span>&gt;</span>
+                    <li class="active">整体报告</li>
+                </ul>
+                
+                <div style="position: absolute; right: 15px; top: 8px;">
+                    <div class="dropdown inline-block" id="date_dropdown">
+                        <a class="btn btn-link dropdown-toggle" type="button" id="date_dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">最近7天 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="date_dropdown_menu">
+                            <li><a href="javascript:;" data-begin-date="2017-01-05" data-end-date="2017-01-05">今天</a></li>
+                            <li><a href="javascript:;" data-begin-date="2017-01-04" data-end-date="2017-01-04">昨天</a></li>
+                            <li><a href="javascript:;" data-begin-date="2016-12-29" data-end-date="2017-01-05">最近7天</a></li>
+                            <li><a href="javascript:;" data-begin-date="2016-12-06" data-end-date="2017-01-05">最近30天</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:;" data-begin-date="2017-01-01" data-end-date="2017-01-05">其他</a></li>
+                        </ul>
+                    </div>
+                    <div class="inline-block hidden" id="date_input_container" style="vertical-align: middle;">
+                        <div class="inline-block" style="position: relative;">
+                            <input class="form-control" id="begin_date" name="begin_date" value="2016-12-29" type="text" style="width:120px;display:inline-block;">
+                        </div>
+                        <div class="inline-block" style="position: relative;">
+                            <input class="form-control" id="end_date" name="end_date" value="2017-01-05" type="text" style="width:120px;display:inline-block;">
+                        </div>
+                        <input class="form-control" id="offer_id" name="offer_id" value="" type="hidden">
+                        <button class="btn btn-default" type="button" style="vertical-align: middle;" onclick="get_offer_traffic_summary_list();">查询</button>
+                    </div>
+
+
+                    <a class="btn btn-link"><i class="glyphicon glyphicon-export"></i> 导出CVS</a>
+                </div>
+            </div>
+
+            <div style="padding: 20px 30px 30px;">
+                
+                <div class="container-fluid mb20">
+                    <div class="row" style="background-color: #f7f7f7;border: 1px solid #eee;padding: 20px 0;">
+                        <div class="col-xs-3" style="border-right: 1px solid #e6e6e6;">
+                            <h4 id="total_impressions">105000</h4>
+                            <span class="text-muted">展现量</span>
+                        </div>
+                        <div class="col-xs-3" style="border-right: 1px solid #e6e6e6;">
+                            <h4 id="total_clicks">0</h4>
+                            <span class="text-muted">点击量</span>
+                        </div>
+                        <div class="col-xs-3" style="border-right: 1px solid #e6e6e6;">
+                            <h4>--</h4>
+                            <span class="text-muted">点击率</span>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>￥0.00</h4>
+                            <span class="text-muted">收入</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="chart" style="width:980px;height:300px; margin-bottom: 20px;"></div><!--  必须设置宽和高 -->
+
+                
+                <table class="table table-hover" id="charts_table">
+                    <thead>
+                        <tr>
+                            <th style="width:130px;">时间</th>
+                            <th style="width:120px;">展现量</th>
+                            <th style="width:120px;">点击量</th>
+                            <th style="width:120px;">点击率</th>
+                            <th style="width:120px;">CPC</th>
+                            <th style="width:120px;">收入</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>2016-12-29</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td></td>
+                            <td>0</td>
+                            <td></td>
+                        </tr> -->
+                        <tr>
+                            <td class="text-center" colspan="10">没有数据</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div><!-- .page-content -->
+    </div><!-- .page-container -->
+
+    
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+        
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-section-title" href="dashboard.html">
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <span>仪表盘</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="index.html">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <span>表单</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="index.html">表格</a></li>
+                    <li><a href="form.html">表单</a></li>
+                    <li><a href="datetimepicker.html">日历</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="panel.html">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>基础组件</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="panel.html">面板</a></li>
+                       <li><a href="label.html">标签页</a></li>
+                    <li><a href="progress.html">进度条</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="modal.html">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <span>操作反馈</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="modal.html">模态框</a></li>
+                    <li><a href="tooltip.html">工具提示</a></li>
+                    <li><a href="alert.html">警告框</a></li>
+                    <li><a href="toast.html">吐司</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="line.html">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    <span>报表</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="line.html">折线图</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+                <a class="sidebar-menu-section-title" href="login.html">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>页面</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="login.html">登录页面</a></li>
+                    <li><a href="login_fullscreen.html">登录页面(全屏)</a></li>
+                    <li><a href="register.html">注册页面</a></li>
+                    <li><a href="edit_password.html">修改密码</a></li>
+                    <li><a href="stats.html">统计报告</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            
+
+        
+        </ul>
+    </div><!-- .sidebar -->
+    
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="home/js/template.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js?_v_=1479966781202"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/moment-with-locales.min.js"></script><!-- datetimepicker require moment.js -->
+    <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+
+        // 绑定折叠侧边菜单栏事件
+        $("#toggle_navigator").click(function(){
+            $(this).toggleClass('fold');
+
+            $("body").toggleClass('navigator-collapse');
+        });
+
+
+        // 侧边菜单箭头事件绑定
+        $("#sidebar .sidebar-drop").click(function(){
+            if(!$(this).parent().hasClass('expand')){
+                $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
+            }
+
+            $(this).parent().toggleClass('expand');
+        });
+
+
+
+        // 默认日志整体报告统计信息
+        get_report_summary_list();
+
+        
+        // 绑定日期下拉菜单点击事件
+        $("#date_dropdown .dropdown-menu").delegate("a", 'click', function(){
+            var date_text = $(this).text();
+            var begin_date = $(this).data('begin-date');
+            var end_date   = $(this).data('end-date');
+
+
+            $("#date_dropdown_menu").html(date_text+' <span class="caret"></span>');
+
+            $("#begin_date").val(begin_date);
+            $("#end_date").val(end_date);
+
+            if(date_text != '其他'){
+                get_report_summary_list();
+
+                $("#date_input_container").addClass('hidden');
+            }else{
+                $("#date_input_container").removeClass('hidden');
+            }
+
+        });
+
+        
+
+
+        lang = 'zh';
+        if( lang == 'zh' ){
+            lang = 'zh-CN';
+        }
+
+        $("#begin_date").datetimepicker({
+            locale: lang,
+            format: "YYYY-MM-DD",
+            dayViewHeaderFormat: "YYYY MMMM",
+            useCurrent: true
+        });
+        $("#end_date").datetimepicker({
+            locale: lang,
+            format: "YYYY-MM-DD",
+            dayViewHeaderFormat: "YYYY MMMM",
+            useCurrent: false
+        }); 
+
+    });
+
+    
+    // 第二个参数可以指定前面引入的主题
+    var chart = echarts.init(document.getElementById('chart'), 'macarons');
+    option = {
+        color: [
+            '#66c3f9', '#acdd96', '#ffd155', '#fd2222' // 调色盘颜色列表
+        ],
+        title : {
+            text: '趋势图',
+            // subtext: '纯属虚构'
+            textStyle: {
+                color: '#888',
+                fontSize: 14
+            },
+            top: 0
+        },
+        grid: {
+            left: '5%',  // grid 组件离容器左侧的距离
+            right: '4%',
+            bottom: '10%'
+        },
+        tooltip : {
+            trigger: 'axis',
+        },
+        legend: { // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示
+            data:['展现','点击'], 
+            x: 'right'
+        },
+        toolbox: {
+            show : false,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                splitLine: { // 坐标轴在 grid 区域中的分隔线
+                    show: false 
+                },
+                axisLine: { // 坐标轴刻度标签的相关设置
+                    lineStyle: {
+                        color: '#555' 
+                    }
+                },
+                data : ["2016-12-01", "2016-12-02", "2016-12-03", "2016-12-04", "2016-12-05", "2016-12-06", "2016-12-07"]
+            }
+        ],
+        yAxis : [
+            {
+                // name: '降水量',
+                type : 'value',
+                splitNumber: 4, // 坐标轴的分割段数
+                splitLine: { // 坐标轴在 grid 区域中的分隔线
+                    show: true,
+                    lineStyle: {
+                        color: ['#f0f0f0'],
+                        type: 'dashed'
+                    }
+                },
+                axisLine: { // 坐标轴刻度标签的相关设置
+                    lineStyle: {
+                        color: '#888'
+                    }
+                },
+                boundaryGap: ['0', '15%'] // 坐标轴两边留白策略
+            }
+        ],
+        series : [
+            {
+                name: '展现',
+                type: 'line',
+                symbol: 'emptyCircle',
+                symbolSize: 3,
+                showSymbol: true,
+                smooth: true,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
+                data: [] // 30, 53, 82, 105, 196, 227, 399
+            },
+            {
+                name: '点击',
+                type: 'line',
+                symbol: 'emptyCircle',
+                symbolSize: 3,
+                showSymbol: true,
+                smooth: true,
+                data: [] // 10, 23, 14, 25, 56, 76, 156
+            }
+        ]
+    };
+    // setTimeout(function(){
+        // chart.setOption(option);
+    // }, 200);
+
+    // 获取整体报告列表
+    function get_report_summary_list(){
+        // 从input:hidden获取过滤筛选数据
+        var begin_date = $("#begin_date").val();
+        var end_date   = $("#end_date").val();
+
+
+        var params = {};
+        params['begin_date'] = begin_date;
+        params['end_date']   = end_date;
+        $.ajax({
+            type: "GET",
+            url: "get_report_summary_list.json",
+            data: params,
+            dataType: "json",
+            success: function(json){
+                if(json.status == 1){
+                    // 1. 渲染表格数据
+                    var html = template.render('tpl_charts_table_list', {
+                        list: json.data.list
+                    });
+
+                    $("#charts_table").html(html);
+
+
+                    // 2. 渲染charts报表
+                    var x_list      = new Array;
+                    var y_data_list0 = new Array;
+                    var y_data_list1 = new Array;
+                    // var y_data_list2 = new Array;
+                    // var y_data_list3 = new Array;
+                    for(var i in json.data.list){
+                        var item_title   = json.data.list[i]['days'];
+                        x_list.push(item_title);
+
+                        var sales_amount = json.data.list[i]['impressions'];
+                        y_data_list0.push(sales_amount);
+
+                        var gross_profit = json.data.list[i]['clicks'];
+                        y_data_list1.push(gross_profit);
+                    }
+                    console.info(x_list);
+
+                    option['xAxis'][0]['data']  = x_list;
+                    option['series'][0]['data'] = y_data_list0;
+                    option['series'][1]['data'] = y_data_list1;
+
+                    setTimeout(function(){
+                        chart.setOption(option);
+                    });
+
+                    // 渲染统计金额
+                    var stat = json.data.stat;
+                    $("#total_impressions").text(stat['total_impressions']);
+                    $("#total_clicks").text(stat['total_clicks']);
+                }else{
+                    toastr.error(json.info);
+                }
+            },
+            error: function(){
+
+            }
+        });
+    }
+    </script>
+    <!-- 统计列表模板 -->
+    <script id="tpl_charts_table_list" type="text/template">
+        <thead>
+            <tr>
+                <th style="width:130px;">时间</th>
+                <th style="width:120px;">展现量</th>
+                <th style="width:120px;">点击量</th>
+                <th style="width:120px;">点击率</th>
+                <th style="width:120px;">CPC</th>
+                <th style="width:120px;">收入</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(list.length > 0){ %>
+                <% for(var i=0; i<list.length; i++){ %>
+                <tr>
+                    <td><%= list[i]['days'] %></td>
+                    <td><%= list[i]['impressions'] %></td>
+                    <td><%= list[i]['clicks'] %></td>
+                    <td></td>
+                    <td><%= list[i]['cpc'] %></td>
+                    <td></td>
+                </tr>
+                <% } %>
+            <% }else{ %>
+                <tr><td colspan="10">没有数据</td></tr>
+            <% } %>
+        </tbody>
+    </script>
+</body>
+</html>
