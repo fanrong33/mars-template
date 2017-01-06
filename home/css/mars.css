@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.11 build 20170106
+ * @version 1.0.12 build 20170106
  */
 
 /**
@@ -138,7 +138,10 @@ button:hover{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
 }
-
+.input-group-addon {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+}
 
 
 
