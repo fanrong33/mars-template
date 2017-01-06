@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.10 build 20170105
+ * @version 1.0.11 build 20170106
  */
 
 /**
@@ -737,6 +737,31 @@ footer{
 
 
 /**
+ * 导航
+ */
+.nav-tabs{
+    border-bottom: 1px solid #12bdce;
+}
+.nav-tabs>li>a {
+    border-radius: 0px;
+    padding: 7px 12px;
+    margin-right: 3px;
+}
+.nav-tabs>li>a:hover, 
+.nav-tabs>li>a:focus {
+    background-color: #e9fafa;
+    border-color: #e9fafa #e9fafa #12bdce;
+}
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:hover, 
+.nav-tabs>li.active>a:focus {
+    border: 1px solid #12bdce;
+    border-bottom-color: transparent;
+}
+
+
+
+/**
  * 警告框
  * @author 肖代敏
  * @version 1.0.0 build 20161228
@@ -832,3 +857,4 @@ background-color: #f0ad4e
     -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.2);
     box-shadow: 0 0 6px rgba(0,0,0,0.2);
 }
+

@@ -9,6 +9,28 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_q8969xdo3baz6w29.css">
     <link rel="stylesheet" href="home/css/mars.css">
+    <style>
+    .pace {
+        -webkit-pointer-events: none;
+        pointer-events: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    .pace .pace-progress {
+        background-color: hsla(179, 90%, 70%, 1);
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+    }
+    .pace-inactive {
+        display: none;
+    }
+    </style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,7 +106,7 @@
                             <input class="form-control" id="end_date" name="end_date" value="2017-01-05" type="text" style="width:120px;display:inline-block;">
                         </div>
                         <input class="form-control" id="offer_id" name="offer_id" value="" type="hidden">
-                        <button class="btn btn-default" type="button" style="vertical-align: middle;" onclick="get_offer_traffic_summary_list();">查询</button>
+                        <button class="btn btn-default" type="button" style="vertical-align: middle;" onclick="get_summary_report_list();">查询</button>
                     </div>
 
 
@@ -119,10 +141,10 @@
                 <div id="chart" style="width:980px;height:300px; margin-bottom: 20px;"></div><!--  必须设置宽和高 -->
 
                 
-                <table class="table table-hover" id="charts_table">
+                <table class="table table-hover" id="report_list">
                     <thead>
                         <tr>
-                            <th style="width:130px;">时间</th>
+                            <th style="width:150px;">时间</th>
                             <th style="width:120px;">展现量</th>
                             <th style="width:120px;">点击量</th>
                             <th style="width:120px;">点击率</th>
@@ -145,12 +167,12 @@
                     </tbody>
                 </table>
 
-
             </div>
+
 
         </div><!-- .page-content -->
     </div><!-- .page-container -->
-
+    
     
     <div class="sidebar" id="sidebar">
         <ul class="sidebar-menu">
@@ -187,7 +209,7 @@
 
                 <ul class="sidebar-child-menu">
                     <li><a href="panel.html">面板</a></li>
-                       <li><a href="label.html">标签页</a></li>
+                       <li><a href="nav.html">标签页</a></li>
                     <li><a href="progress.html">进度条</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
@@ -242,11 +264,12 @@
         
         </ul>
     </div><!-- .sidebar -->
-    
 
+    
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="home/js/template.min.js"></script>
+    <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
     <script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js?_v_=1479966781202"></script>
     <script src="//cdn.bootcss.com/moment.js/2.17.1/moment-with-locales.min.js"></script><!-- datetimepicker require moment.js -->
     <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
@@ -274,12 +297,12 @@
 
 
         // 默认日志整体报告统计信息
-        get_report_summary_list();
+        get_summary_report_list();
 
         
         // 绑定日期下拉菜单点击事件
         $("#date_dropdown .dropdown-menu").delegate("a", 'click', function(){
-            var date_text = $(this).text();
+            var date_text  = $(this).text();
             var begin_date = $(this).data('begin-date');
             var end_date   = $(this).data('end-date');
 
@@ -290,13 +313,12 @@
             $("#end_date").val(end_date);
 
             if(date_text != '其他'){
-                get_report_summary_list();
+                get_summary_report_list();
 
                 $("#date_input_container").addClass('hidden');
             }else{
                 $("#date_input_container").removeClass('hidden');
             }
-
         });
 
         
@@ -321,6 +343,7 @@
         }); 
 
     });
+
 
     
     // 第二个参数可以指定前面引入的主题
@@ -426,8 +449,11 @@
         // chart.setOption(option);
     // }, 200);
 
-    // 获取整体报告列表
-    function get_report_summary_list(){
+
+    /**
+     * 获取整体报告列表
+     */
+    function get_summary_report_list(){
         // 从input:hidden获取过滤筛选数据
         var begin_date = $("#begin_date").val();
         var end_date   = $("#end_date").val();
@@ -438,25 +464,23 @@
         params['end_date']   = end_date;
         $.ajax({
             type: "GET",
-            url: "get_report_summary_list.json",
+            url: "get_summary_report_list.json",
             data: params,
             dataType: "json",
             success: function(json){
                 if(json.status == 1){
                     // 1. 渲染表格数据
-                    var html = template.render('tpl_charts_table_list', {
+                    var html = template.render('tpl_report_list', {
                         list: json.data.list
                     });
 
-                    $("#charts_table").html(html);
+                    $("#report_list").html(html);
 
 
                     // 2. 渲染charts报表
                     var x_list      = new Array;
                     var y_data_list0 = new Array;
                     var y_data_list1 = new Array;
-                    // var y_data_list2 = new Array;
-                    // var y_data_list3 = new Array;
                     for(var i in json.data.list){
                         var item_title   = json.data.list[i]['days'];
                         x_list.push(item_title);
@@ -467,7 +491,6 @@
                         var gross_profit = json.data.list[i]['clicks'];
                         y_data_list1.push(gross_profit);
                     }
-                    console.info(x_list);
 
                     option['xAxis'][0]['data']  = x_list;
                     option['series'][0]['data'] = y_data_list0;
@@ -477,7 +500,8 @@
                         chart.setOption(option);
                     });
 
-                    // 渲染统计金额
+
+                    // 3. 渲染统计金额
                     var stat = json.data.stat;
                     $("#total_impressions").text(stat['total_impressions']);
                     $("#total_clicks").text(stat['total_clicks']);
@@ -491,8 +515,8 @@
         });
     }
     </script>
-    <!-- 统计列表模板 -->
-    <script id="tpl_charts_table_list" type="text/template">
+    <!-- 报告列表模板 -->
+    <script id="tpl_report_list" type="text/template">
         <thead>
             <tr>
                 <th style="width:130px;">时间</th>
@@ -516,7 +540,7 @@
                 </tr>
                 <% } %>
             <% }else{ %>
-                <tr><td colspan="10">没有数据</td></tr>
+                <tr><td class="text-center" colspan="10">没有数据</td></tr>
             <% } %>
         </tbody>
     </script>
