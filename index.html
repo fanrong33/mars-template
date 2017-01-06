@@ -6,10 +6,9 @@
     <title>MarsUI</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_q8969xdo3baz6w29.css">
     <link rel="stylesheet" href="home/css/mars.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_q8969xdo3baz6w29.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -256,7 +255,7 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
+    <script src="http://cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
     <script>
     $(document).ready(function(){
 
@@ -267,22 +266,19 @@
             $("body").toggleClass('navigator-collapse');
         });
 
-
         // 侧边菜单箭头事件绑定
         $("#sidebar .sidebar-drop").click(function(){
-
             if(!$(this).parent().hasClass('expand')){
                 $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
             }
 
             $(this).parent().toggleClass('expand');
-
         });
 
 
 
         // group dropdown click event
-        $("#status_dropdown").delegate("a", 'click', function(){
+        $("#status_dropdown .dropdown-menu").delegate("a", 'click', function(){
             var status_text = $(this).text();
             var status      = $(this).data('status');
 
@@ -366,25 +362,26 @@
     });
 
 
-    function delete_page(id){
-            if(confirm('确定删除？')){
-                $.ajax({
-                    type: "POST",
-                    url: "/page/delete",
-                    data: { page_id: id },
-                    dataType: "json",
-                    success: function(json){
-                        if(json.status == 1){
-                            $("#page_"+id).remove();
 
-                            toastr.success(json.info);
-                        }else{
-                            toastr.error(json.info);
-                        }
+    function delete_page(id){
+        if(confirm('确定删除？')){
+            $.ajax({
+                type: "POST",
+                url: "/page/delete",
+                data: { page_id: id },
+                dataType: "json",
+                success: function(json){
+                    if(json.status == 1){
+                        $("#page_"+id).remove();
+
+                        toastr.success(json.info);
+                    }else{
+                        toastr.error(json.info);
                     }
-                });
-            }
+                }
+            });
         }
+    }
     </script>
 </body>
 </html>
