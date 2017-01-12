@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="utf-8">
+
+<title>jQuery返回顶部插件jQuery.toTop演示</title>
+
+<style>
+
+body { height: 2ddpx; line-height: 2;}
+
+.dowebok { width: 728px; margin-left: auto; margin-right: auto;}
+
+.dowebok h1 { text-align: center;}
+
+.dowebok h2 { margin-top: 2em; border-bottom: 1px solid #ccc;}
+
+.dowebok pre { padding: .5em 1em; border: 1px solid #ccc;}
+
+.dowebok table { width: 100%; border-spacing: 0; border-collapse: collapse;}
+
+.dowebok th, .dowebok td { padding: 5px 10px; border: 1px solid #ddd;}
+
+.dowebok tr:nth-child(2n) { background-color: #f8f8f8;}
+
+.to-top { display: none; padding: 0 20px; color: #fff; background-color: #f50;}
+
+
+
+.vad { margin: 100px 0 10px; font-family: Consolas,arial,宋体,sans-serif; text-align:center;}
+
+.vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 50px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+
+.vad a:hover { color: #fff; background-color: #000;}
+
+.thead { width: 728px; height: 90px; margin: 0 auto; border-bottom: 40px solid transparent;}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<div class="dowebok">
+
+	<h1>jQuery返回顶部插件jQuery.toTop演示</h1>
+
+	
+
+	<h2>简介</h2>
+
+	<p>jQuery.toTop 是一款轻量级的 jQuery 返回顶部插件，压缩后不到 1KB。同时它也是可定制的，你可以设置是否自动隐藏、滚动时间、位置等等。</p>
+
+	
+
+	<h2>使用方法</h2>
+
+	<p>1、引入文件</p>
+
+	<pre>&lt;script src="jsjquery.min.js"&gt;&lt;/script&gt;
+	&lt;script src="js/jquery.toTop.min.js"&gt;&lt;/script&gt;</pre>
+
+	
+
+	<p>2、HTML</p>
+
+	<pre>&lt;a class="to-top"&gt;返回顶部&lt;/a&gt;</pre>
+
+	
+
+	<p>3、JavaScript</p>
+
+	<pre>$('.to-top').toTop();</pre>
+
+	
+
+	<h2>配置</h2>
+
+	<table>
+
+		<thead>
+
+			<tr>
+
+				<th>属性/方法</th>
+
+				<th>类型</th>
+
+				<th>默认值</th>
+
+				<th>说明</th>
+
+			</tr>
+
+		</thead>
+
+		<tbody>
+
+			<tr>
+
+				<td>autohide</td>
+
+				<td>布尔值</td>
+
+				<td>true</td>
+
+				<td>自动隐藏</td>
+
+			</tr>
+
+			<tr>
+
+				<td>offset</td>
+
+				<td>整数</td>
+
+				<td>420</td>
+
+				<td>距离顶部多少距离时自动隐藏按钮</td>
+
+			</tr>
+
+			<tr>
+
+				<td>speed</td>
+
+				<td>整数</td>
+
+				<td>500</td>
+
+				<td>滚动持续时间</td>
+
+			</tr>
+
+			<tr>
+
+				<td>position</td>
+
+				<td>布尔值</td>
+
+				<td>true</td>
+
+				<td>如果设置为 false，则需要手动在 css 中设置“按钮”的位置</td>
+
+			</tr>
+
+			<tr>
+
+				<td>right</td>
+
+				<td>整数</td>
+
+				<td>15</td>
+
+				<td>右侧距离</td>
+
+			</tr>
+
+			<tr>
+
+				<td>bottom</td>
+
+				<td>整数</td>
+
+				<td>30</td>
+
+				<td>底部距离</td>
+
+			</tr>
+
+		</tbody>
+
+	</table>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+	<p>&nbsp;</p>
+
+
+
+</div>
+
+
+
+<a class="to-top">Top</a>
+
+
+
+<script src="home/js/toTop/jquery-1.11.3.min.js"></script>
+
+<script src="home/js/totop/jquery.toTop.min.js"></script>
+
+<script>
+
+$(function() {
+
+	$('.to-top').toTop();
+
+});
+
+</script>
+
+
+
+</body>
+
+</html>
