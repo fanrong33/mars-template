@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.12 build 20170106
+ * @version 1.0.13 build 20170112
  */
 
 /**
@@ -38,6 +38,7 @@ a:hover, a:focus{
 .mb10{margin-bottom: 10px;}
 .mb15{margin-bottom: 15px;}
 .mb20{margin-bottom: 20px;}
+.mb30{margin-bottom: 30px;}
 .ml10{margin-left: 10px;}
 .ml15{margin-left: 15px;}
 .ml20{margin-left: 20px;}
@@ -863,24 +864,36 @@ background-color: #f0ad4e
 
 
 /**
- * 发送成功页面
- * @author 肖代敏
- * @version 1.0.0 build 2017112
+ * 提示页
+ * @author 蔡繁荣
+ * @version 1.0.0 build 20170112
  */
-.send{
-    margin:50px 130px 50px;
+.msg{
+        
 }
-.send b{
-    font-size: 50px;
-    float:left;
-}
-.send .send-info{
-    font-size: 18px;
-    margin-left:60px;
-    padding-top: 10px;
-}
-.send .send-info p{
-    font-size: 15px;
-    color:#999;
-}
+.msg-left{
+    display: table-cell;
+    vertical-align: top;
 
+    padding-right: 15px;
+    line-height: 1;
+}
+.msg-left .iconfont{
+    font-size: 46px;
+}
+.msg-success .msg-left .iconfont{
+    color: #09bb07;
+}
+.msg-warn .msg-left .iconfont{
+    color: #f76260;
+}
+.msg-body{
+    display: table-cell;
+    vertical-align: top;
+}
+.msg-body h4{
+    margin-top: 0;
+}
+.msg-body p{
+    color: #999;
+}
