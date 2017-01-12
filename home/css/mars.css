@@ -861,3 +861,26 @@ background-color: #f0ad4e
     box-shadow: 0 0 6px rgba(0,0,0,0.2);
 }
 
+
+/**
+ * 发送成功页面
+ * @author 肖代敏
+ * @version 1.0.0 build 2017112
+ */
+.send{
+    margin:50px 130px 50px;
+}
+.send b{
+    font-size: 50px;
+    float:left;
+}
+.send .send-info{
+    font-size: 18px;
+    margin-left:60px;
+    padding-top: 10px;
+}
+.send .send-info p{
+    font-size: 15px;
+    color:#999;
+}
+
