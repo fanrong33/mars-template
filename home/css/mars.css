@@ -744,7 +744,7 @@ footer{
  * 导航
  */
 .nav-tabs{
-    border-bottom: 1px solid #12bdce;
+    border-bottom: 1px solid #ddd;
 }
 .nav-tabs>li>a {
     border-radius: 0px;
@@ -754,12 +754,12 @@ footer{
 .nav-tabs>li>a:hover, 
 .nav-tabs>li>a:focus {
     background-color: #e9fafa;
-    border-color: #e9fafa #e9fafa #12bdce;
+    border-color: #e9fafa #e9fafa #ddd;
 }
 .nav-tabs>li.active>a, 
 .nav-tabs>li.active>a:hover, 
 .nav-tabs>li.active>a:focus {
-    border: 1px solid #12bdce;
+    border: 1px solid #ddd;
     border-bottom-color: transparent;
 }
 
