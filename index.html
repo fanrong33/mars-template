@@ -107,6 +107,9 @@
                     <table class="table table-hover" id="page_list">
                         <thead>
                             <tr>
+                                <th style="width: 36px; text-align: center;">
+                                    <input id="select_all_checkbox" type="checkbox" onclick="select_all(this, '#page_list tbody', toggle_btn_display_callback)" value="">
+                                </th>
                                 <th>名称</th>
                                 <th style="width:120px;">平台</th>
                                 <th style="width:140px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
@@ -119,6 +122,9 @@
                         </thead>
                         <tbody>
                             <tr id="page_24">
+                                <td style="text-align: center;">
+                                    <input type="checkbox" name="id[]" value="1" onclick="select_one(this, '#page_list tbody', '#select_all_checkbox', toggle_btn_display_callback)">
+                                </td>
                                 <td>
                                     <p><a href="">测试应用</a></p>
                                     <span class="text-muted">ID: 823323</span>
@@ -133,8 +139,11 @@
                                 </td>
                             </tr>
                             <tr id="page_25">
+                                <td style="text-align: center;">
+                                    <input type="checkbox" name="id[]" value="2" onclick="select_one(this, '#page_list tbody', '#select_all_checkbox', toggle_btn_display_callback)">
+                                </td>
                                 <td>
-                                    <p><a href="">测试应用</a></p>
+                                    <p><a href="">测试应用2</a></p>
                                     <span class="text-muted">ID: 823323</span>
                                 </td>
                                 <td><i class="iconfont icon-android" style="font-size: 22px;color: #97C03C;"></i></td>
@@ -148,10 +157,16 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <nav class="text-right">
-                        <ul class="pagination" style="margin-top: 0;"><li class='disabled'><a>&laquo;</a></li><li class='active'><a>1</a></li><li><a href='/page/index/p/2.html'>2</a></li><li><a href='/page/index/p/3.html'>3</a></li><li><a>...</a></li><li><a href='/page/index/p/5.html'>5</a></li><li><a href='/page/index/p/2.html' class='next'>&raquo;</a></li></ul>
-                    </nav>
+                    
+                    <div class="clearfix">
+                        <div class="pull-left">
+                            <button type="submit" class="btn btn-primary" id="batch_delete_btn" disabled>批量删除 <span></span></button>
+                        </div>
+                        <nav class="pull-right">
+                            <ul class="pagination" style="margin-top: 0;"><li class='disabled'><a>&laquo;</a></li><li class='active'><a>1</a></li><li><a href='/page/index/p/2.html'>2</a></li><li><a href='/page/index/p/3.html'>3</a></li><li><a>...</a></li><li><a href='/page/index/p/5.html'>5</a></li><li><a href='/page/index/p/2.html' class='next'>&raquo;</a></li></ul>
+                        </nav>
+                    </div>
+                    
 
                 </div><!-- .list-view -->
             </div>
@@ -381,6 +396,69 @@
                     }
                 }
             });
+        }
+    }
+
+
+    /**
+     * checkbox全选
+     * @param  {Dom}       obj         dom对象，一般传入this
+     * @param  {String}    container   子checkbox容器节点，例如'#item_list tbody'
+     * @param  {Function}  callback    回调函数，例如选中后，处理'从列表下架'按钮的显示 toggle_display_callback: function(is_checked)
+     * @author 蔡繁荣
+     * @version 1.0.1 build 20170208
+     */
+    function select_all(obj, container, callback){
+        var is_checked = obj.checked;
+
+        $(container + " :checkbox").each(function(){
+            this.checked = is_checked;
+        });
+
+        var checked = $(container+" input:checkbox:checked").length;
+
+        callback && callback(checked);
+    }
+
+    /**
+     * 表格行内-选中单个checkbox
+     * @param  {Dom}      obj           dom对象，一般传入this
+     * @param  {String}   container     子checkbox容器节点，例如'#item_list tbody'
+     * @param  {String}   all_checkbox  全选checkbox节点，例如'#select_all_checkbox'
+     * @param  {Function} callback      回调函数，例如选中后，处理‘从列表下架’按钮的显示
+     * @author 蔡繁荣
+     * @version 1.0.1 build 20170208
+     */
+    function select_one(obj, container, all_checkbox, callback){
+        var is_checked = obj.checked;
+        
+        var total   = $(container+" input:checkbox").length;
+        var checked = $(container+" input:checkbox:checked").length;
+
+
+        if(is_checked){
+            // 选中了，如果全部选中，则同时选中'全选'的那个input
+            if(checked == total){
+                $(all_checkbox).get(0).checked = true;
+            }
+        }else{
+            // 取消选择，肯定取消'全选'的那个input
+            $(all_checkbox).get(0).checked = false;
+        }
+        // 判断选中的个数，如果大于0，则启用”从列表下架“按钮，否则禁用”从列表下架按钮“
+        
+        callback && callback(checked);
+    }
+
+    
+    // 开关”从列表下架“回调
+    function toggle_btn_display_callback(checked){
+        if(checked > 0){
+            // 设置从列表下架按钮启用
+            $("#batch_delete_btn").removeAttr('disabled').find('span').text('('+checked+')');
+        }else{
+            // 设置从列表下架按钮禁用
+            $("#batch_delete_btn").attr('disabled', '').find('span').text('');
         }
     }
     </script>

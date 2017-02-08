@@ -682,7 +682,7 @@ footer{
 /**
  * 工具提示
  * @author 肖代敏，蔡繁荣
- * @version 1.0.1 build 20170104
+ * @version 1.0.2 build 20170208
  */
 .tooltip-arrow{
     display: none;
@@ -696,7 +696,6 @@ footer{
     border:1px solid rgb(199,243,246);
     border-radius: 0;
 }
-
 .tooltip-help{
     width: 15px;
     height: 15px;
@@ -707,12 +706,12 @@ footer{
     display: inline-block;
     text-align: center;
     line-height: normal;
-    color: #12bfcd;
+    color: #fff;
     font-size: 10px;
     font-weight: bold;
     font-style: normal;
+    background-color: #12bfcd;
 
- 
     cursor: pointer;
     -webkit-transform: scale(0.9);
             transform: scale(0.9);
