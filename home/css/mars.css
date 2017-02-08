@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.13 build 20170112
+ * @version 1.0.15 build 20170209
  */
 
 /**
@@ -569,7 +569,10 @@ footer{
 }
 
 
-/* 表格 */
+/**
+ * 表格
+ * @version 1.0.2 build 20170209
+ */
 .table{
     font-size: 12px;
 }
@@ -585,6 +588,10 @@ footer{
     border-bottom: 1px solid #f0f0f0;
     padding: 10px 8px;
     vertical-align: middle;
+}
+.table>tbody>tr>td .divider{
+    padding: 0 3px;
+    color: #ddd;
 }
 .table-hover>tbody>tr:hover {
     background-color: #fffbed;
