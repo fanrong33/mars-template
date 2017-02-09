@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsUI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body><!-- action: .navigator-collapse -->
+    
+    <nav class="navbar navbar-default navbar-mars navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+            <div class="inverse-sidebar" id="toggle_navigator">
+                <i class="iconfont icon-hamburger"></i>
+            </div>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
+            </div>
+            
+
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">fanrong33 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">账号管理</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    <div class="page-container">
+        
+        <div class="page-content">
+
+            <ul class="page-breadcrumb">
+                <li><a href="">首页</a></li>
+                <span>&gt;</span>
+                <li class="active">导入Offer</li>
+            </ul>
+
+            <div class="list-page-content">
+                <div class="list-view">
+                    
+                    <div class="list-meta">
+                        <div class="list-filter">
+                            <form id="form" action="" method="GET">
+                                <div class="input-group inline-block" style="width: 250px; vertical-align: middle;">
+                                    <input class="form-control" id="keyword" name="keyword" value="" type="text" placeholder="搜索应用名称和ID" autocomplete="off" onkeydown="enter_press(item_manager.get_item_list);" style="width: 210px;font-size: 12px;">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="item_manager.get_item_list();"><i class="glyphicon glyphicon-search" style="width: 14px;height: 14px;color: #999;"></i></button>
+                                    </span>
+                                </div>
+                                
+                                <div class="dropdown inline-block" id="status_dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="status_dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 12px;padding-top: 7px;line-height: normal;padding-bottom: 7px;">
+                                        全部状态
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="status_dropdown_menu" style="max-height: 200px;overflow-y: auto;font-size: 12px;">
+                                        <li><a href="javascript:;">全部状态</a></li>
+                                        <li><a href="javascript:;" data-status="1">已通过</a></li>
+                                        <li><a href="javascript:;" data-status="0">审核中</a></li>
+                                        <li><a href="javascript:;" data-status="-1">未通过</a></li>
+                                    </ul>
+                                </div>
+    
+
+                                <input type="hidden" id="status" name="status" value="" />
+                                <input type="hidden" id="order_by" name="order_by" value="" />
+                                <input type="hidden" id="direction" name="direction" value="" />
+
+                            </form>
+                        </div><!-- .list-filter -->
+                    </div><!-- .list-meta -->
+
+
+                    <table class="table table-hover" id="page_list">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th style="width:120px;">平台</th>
+                                <th style="width:140px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
+                                <th style="width:100px;">状态</th>
+                                <th style="width:150px;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="page_24">
+                                <td>
+                                    <div class="media">
+                                        <a class="media-left" href="javascript:;">
+                                            <img src="http://is5.mzstatic.com/image/thumb/Purple122/v4/99/bb/20/99bb2077-b6dd-21f8-8c36-74918cd49c06/source/175x175bb.jpg" alt="..." width="40">
+                                        </a>
+                                        <div class="media-body">
+                                            <p style="font-size: 13px;"><a href="javascript:;" data-toggle="modal" data-target="#slideModal" data-offerid="100502165">Bunny Pop - US - iOS</a></p>
+                                            <span class="text-muted">Offer ID: 100502165</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i></td>
+                                <td>2016-12-21</td>
+                                <td>正常</td> 
+                                <td>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#slideModal" data-offerid="100502165" style="color: #12bfcd;">查看</a>
+                                    <span class="divider">|</span>
+                                    <a href="javascript:;">下载物料包</a>
+                                </td>
+                            </tr>
+                            <tr id="page_25">
+                                <td>
+                                    <div class="media">
+                                        <a class="media-left" href="javascript:;">
+                                            <img src="http://a1.mzstatic.com/us/r30/Purple20/v4/39/28/d5/3928d523-30a6-19f7-3137-c7fe1cacfe0e/icon175x175.jpeg" alt="..." width="40">
+                                        </a>
+                                        <div class="media-body">
+                                            <p style="font-size: 13px;"><a href="javascript:;" data-toggle="modal" data-target="#slideModal" data-offerid="100496868">Jewel Match King - US - iOS</a></p>
+                                            <span class="text-muted">Offer ID: 100496868</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i></td>
+                                <td>2016-12-21</td>
+                                <td>暂停</td> 
+                                <td>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#slideModal" data-offerid="100502165" style="color: #12bfcd;">查看</a>
+                                    <span class="divider">|</span>
+                                    <a href="javascript:;">下载物料包</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="clearfix">
+                        <nav class="pull-right">
+                            <ul class="pagination" style="margin-top: 0;"><li class='disabled'><a>&laquo;</a></li><li class='active'><a>1</a></li><li><a href='/page/index/p/2.html'>2</a></li><li><a href='/page/index/p/3.html'>3</a></li><li><a>...</a></li><li><a href='/page/index/p/5.html'>5</a></li><li><a href='/page/index/p/2.html' class='next'>&raquo;</a></li></ul>
+                        </nav>
+                    </div>
+                    
+
+                </div><!-- .list-view -->
+            </div>
+
+        </div>
+        
+        
+    </div><!-- .page-container -->
+
+    
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+        
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-section-title" href="dashboard.html">
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <span>仪表盘</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+                <a class="sidebar-menu-section-title" href="index.html">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <span>表单</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="index.html">表格</a></li>
+                    <li><a href="form.html">表单</a></li>
+                    <li><a href="datetimepicker.html">日历</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="panel.html">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>基础组件</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="panel.html">面板</a></li>
+                    <li><a href="nav.html">标签页</a></li>
+                    <li><a href="progress.html">进度条</a></li>
+                    <li><a href="slide_right_modal.html">侧滑模态框</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="modal.html">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <span>操作反馈</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="modal.html">模态框</a></li>
+                    <li><a href="tooltip.html">工具提示</a></li>
+                    <li><a href="alert.html">警告框</a></li>
+                    <li><a href="toast.html">吐司</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="line.html">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    <span>报表</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="line.html">折线图</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="login.html">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>页面</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="login.html">登录页面</a></li>
+                    <li><a href="login_fullscreen.html">登录页面(全屏)</a></li>
+                    <li><a href="register.html">注册页面</a></li>
+                    <li><a href="edit_password.html">修改密码</a></li>
+                    <li><a href="stats.html">统计报告</a></li>
+                    <li><a href="msg.html">提示页</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+
+        
+        </ul>
+    </div><!-- .sidebar -->
+    
+
+    <!-- Modal -->
+    <div class="modal fade slide-right" id="slideModal" role="dialog" aria-labelledby="slideModalLabel">
+        <div class="modal-dialog" role="document" style="width: 600px;">
+            <div class="modal-content" id="modal_content" data-item-id=""><!-- 显示modal的同时注入当前显示的商品 data-item-id -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="slideModalLabel">Offer详情</h5>
+                </div>
+                <div class="modal-body form-horizontal">
+
+                    <div class="media" style="margin-bottom: 20px;">
+                        <div class="media-left" style="padding-left: 5px;padding-right: 25px;">
+                            <!--<img src="http://is5.mzstatic.com/image/thumb/Purple122/v4/99/bb/20/99bb2077-b6dd-21f8-8c36-74918cd49c06/source/175x175bb.jpg" alt="..." width="100">-->
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="margin-bottom: 10px;"></h4>
+                            <p class="text-muted text-ellipsis-4" style="height: 70px;overflow: hidden;margin-bottom: 0;"></p>
+                        </div>
+                    </div>
+                    
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">Offer ID：</label>
+                            <div class="col-xs-7 pl0">
+                                <p class="form-control-static"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">Offer Name：</label>
+                            <div class="col-xs-7 pl0">
+                                <p class="form-control-static"></p>
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">AD Network：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">Tracking Link：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">Platform：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">Min Version：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">GEO：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">Preview Link：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">Price：</label>
+                        <div class="col-xs-7 pl0">
+                            <p class="form-control-static"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                </div><!-- .modal-footer -->
+            </div>
+        </div>
+    </div><!-- .modal -->
+
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
+    <script src="home/js/template.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+        // 绑定折叠侧边菜单栏事件
+        $("#toggle_navigator").click(function(){
+            $(this).toggleClass('fold');
+
+            $("body").toggleClass('navigator-collapse');
+        });
+
+        // 侧边菜单箭头事件绑定
+        $("#sidebar .sidebar-drop").click(function(){
+            if(!$(this).parent().hasClass('expand')){
+                $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
+            }
+
+            $(this).parent().toggleClass('expand');
+        });
+
+
+
+        // group dropdown click event
+        $("#status_dropdown .dropdown-menu").delegate("a", 'click', function(){
+            var status_text = $(this).text();
+            var status      = $(this).data('status');
+
+            $("#status_dropdown button").html(status_text+' <span class="caret"></span>');
+            $("#status").val(status);
+            $("#form").submit();
+        });
+
+
+        // bind sort event
+        $("#page_list").delegate('.sort', 'click', function(){
+            var $this = $(this);
+            if($this.hasClass('desc')){
+                $this.removeClass('desc').addClass('asc');
+                // asc
+                $("#order_by").val($this.data('order-by'));
+                $("#direction").val('asc');
+            }else{
+                // if($this.hasClass('asc')){
+                //     $this.removeClass('asc');
+                //     // default
+                //     $("#order_by").val('');
+                //     $("#direction").val('');
+                // }else{
+                    $this.removeClass('asc').addClass('desc');
+                    // desc
+                    $("#order_by").val($this.data('order-by'));
+                    $("#direction").val('desc');
+                // }
+            }
+
+            $("#form").submit();
+        });
+
+
+
+        $('#slideModal').on('show.bs.modal', function (event) {
+
+            var $button = $(event.relatedTarget);
+            var offerId = $button.data('offerid');
+            
+            init_offer(offerId);
+        });
+
+
+        if(window.location.hash){
+            $(window.location.hash).addClass('highlight-fade');
+        }
+    });
+
+    
+    function init_offer(offerId) {
+        // 初始化Offer详情页面
+        $.ajax({
+            type: "GET",
+            url: "get_offer_api.json",
+            data: { offerId: offerId },
+            dataType: "json",
+            success: function(json){
+                if(json.status == 1){
+                    var html = template.render('tpl_offer_detail', {
+                        data: json.data
+                    });
+                    $("#modal_content .modal-body").html(html);
+                }
+            }
+        });
+    }
+
+    </script>
+
+    <!-- Offer详情模态对话框模板 -->
+    <script id="tpl_offer_detail" type="text/template">
+        <div class="media" style="margin-bottom: 20px;">
+            <div class="media-left" style="padding-left: 5px;padding-right: 25px;">
+                <img src="<%= data['iconLink'] %>" alt="..." width="100">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading" style="margin-bottom: 10px;"><%= data['appName'] %></h4>
+                <div class="text-muted text-ellipsis-4" style="height: 70px;overflow: hidden;margin-bottom: 0;font-size: 13px;"><%= data['appDescBrief'] %></div>
+            </div>
+        </div>
+        
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">Offer ID：</label>
+                <div class="col-xs-7 pl0">
+                    <p class="form-control-static"><%= data['offerId'] %></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-3 control-label">Offer Name：</label>
+                <div class="col-xs-7 pl0">
+                    <p class="form-control-static"><%= data['name'] %></p>
+                </div>
+            </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">AD Network：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['network'] %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">Tracking Link：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['url'] %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">Platform：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static">
+                    <% if(data['platform'] == 'android'){ %>
+                        <i class="iconfont icon-android" style="font-size: 22px;color: #97C03C;"></i>
+                    <% }else{ %>
+                        <i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">Min Version：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['minVersion'] %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">GEO：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['geo'] %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">Preview Link：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['previewLink'] %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-3 control-label">Price：</label>
+            <div class="col-xs-7 pl0">
+                <p class="form-control-static"><%= data['price'] %></p>
+            </div>
+        </div>
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.16 build 20170209
+ * @version 1.0.17 build 20170209
  */
 
 /**
@@ -850,6 +850,84 @@ background-color: #f0ad4e
     background-color: #d9534f
 }
 
+
+/**
+ * 侧滑模态框
+ * @author 蔡繁荣
+ * @version 1.0.0 build 20170209
+ */
+.modal.slide-right .modal-dialog {
+    position: absolute;
+    right: 0;
+
+    margin: 0;
+    height: 100%;
+    -webkit-transform: translate3d(100%,0,0);
+        -ms-transform: translate(100%,0);
+            transform: translate3d(100%,0,0);
+    
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+.modal.slide-right.in .modal-dialog {
+    -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate(0,0);
+            transform: translate3d(0,0,0);
+}
+.modal.slide-right{
+    left: 170px;
+    top: 60px;
+}
+.navigator-collapse .modal.slide-right{
+    left: 55px;
+}
+.modal.slide-right .modal-content{
+    height: 100%;
+    overflow: auto;
+    border: none;
+    border-radius: 0;
+}
+.modal.slide-right .modal-header {
+    padding: 15px;
+    background-color: #fafbfb;
+}
+.modal.slide-right .modal-body{
+    padding-bottom: 60px;
+}
+.modal.slide-right .modal-footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid #ebebeb;
+    padding: 15px 20px;
+}
+.modal.slide-right .modal-backdrop{
+    left: 170px;
+    top: 60px;
+}
+.navigator-collapse .modal.slide-right .modal-backdrop{
+    left: 55px;
+}
+.modal.slide-right .modal-backdrop.in {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.modal.slide-right .table .input-sm{
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 66px;
+
+    font-size: 14px;
+    line-height: normal;
+    
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0;
+    box-shadow: none;
+}
 
 
 /**
