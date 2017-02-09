@@ -253,12 +253,29 @@ button:hover{
 .navbar-mars .navbar-brand>img{
     -webkit-user-select: none;
 }
+.navbar-mars .navbar-dot{
+    float: left;
+    margin-left: -10px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: middle;
+    line-height: 60px;
+}
+.navbar-mars .navbar-brand-small{
+    float: left;
+    height: 60px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 60px;
+}
+
 .navbar-mars .navbar-nav>li>a{
     padding-top: 20px;
     padding-bottom: 20px;
     color: #fff;
 }
-
 .navbar-mars .navbar-nav>.active>a, 
 .navbar-mars .navbar-nav>.active>a:hover, 
 .navbar-mars .navbar-nav>.active>a:focus{
