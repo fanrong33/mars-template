@@ -434,8 +434,8 @@
     function select_one(obj, container, all_checkbox, callback){
         var is_checked = obj.checked;
         
-        var total   = $(container+" input:checkbox").length;
-        var checked = $(container+" input:checkbox:checked").length;
+        var total   = $(container+" input:checkbox:enabled").length;
+        var checked = $(container+" input:checkbox:checked:enabled").length;
 
 
         if(is_checked){
