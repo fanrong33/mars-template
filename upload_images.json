@@ -1,0 +1,5 @@
+{
+  "success": true, // false
+  "msg": "error message",
+  "file_path": "home/images/westworld.jpg"
+}
