@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.17 build 20170209
+ * @version 1.0.19 build 20170210
  */
 
 /**
@@ -215,7 +215,7 @@ button:hover{
 }
 .form-submit-section {
     margin: 0;
-    padding: 30px 30px 35px;
+    padding: 30px 40px 30px;
     border-top: 1px solid #eaeaea;
     background: #fff;
     position: relative;
