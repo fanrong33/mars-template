@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="home/css/mars.css">
 
     <style>
-        .wordCount{ position:relative;}
-        .wordCount textarea{ width: 100%; }
-        .wordCount .wordwrap{ position:absolute; right: 20px; bottom: 5px;}
-        .wordCount .word{color: #ca0808; padding: 0 3px;}
+        .word-count-container{ position:relative;}
+        .word-count-container textarea{ width: 100%; }
+        .word-count-container .word-wrap{ position:absolute; right: 20px; bottom: 5px;font-style: italic;}
+        .word-count-container .word{color: #ca0808; padding: 0 3px;}
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -105,9 +105,9 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="col-xs-2 control-label">备注信息：</label>
-                        <div class="col-xs-4 pl0 wordCount" id="wordCount">
+                        <div class="col-xs-4 pl0 word-count-container" id="wordCount">
                             <textarea class="form-control" name="remark" rows="5"></textarea>
-                            <span class="wordwrap"><var class="word">100</var>/100</span>
+                            <span class="word-wrap"><var class="word">100</var>/100</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -298,55 +298,33 @@
         });
     });
 
-        $(function(){
 
-
-
+    $(function(){
         //先选出 textarea 和 统计字数 dom 节点
-
-        var wordCount = $("#wordCount"),
-
-            textArea = wordCount.find("textarea"),
-
-            word = wordCount.find(".word");
+        var wordCount = $("#wordCount");
+        var textArea = wordCount.find("textarea");
+        var word = wordCount.find(".word");
 
         //调用
-
-        statInputNum(textArea,word);
-
-
-
+        statInputNum(textArea, word);
     });
 
     /*
-
     * 剩余字数统计
-
     * 注意 最大字数只需要在放数字的节点哪里直接写好即可 如：<var class="word">200</var>
-
     */
-
-    function statInputNum(textArea,numItem) {
+    function statInputNum(textArea, numItem) {
 
         var max = numItem.text(),
-
             curLength;
 
         textArea[0].setAttribute("maxlength", max);
-
         curLength = textArea.val().length;
-
         numItem.text(max - curLength);
-
-        textArea.on('input propertychange', function () {
-
+        textArea.on('input propertychange', function(){
             numItem.text(max - $(this).val().length);
-
         });
-
     }
-
-
     </script>
 </body>
 </html>
