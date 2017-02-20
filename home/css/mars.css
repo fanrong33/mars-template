@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.19 build 20170210
+ * @version 1.0.20 build 20170220
  */
 
 /**
@@ -659,7 +659,6 @@ footer{
 .sort {
     padding-left: 0;
     padding-right: 20px;
-    font-size: 14px;
     text-align: left;
     background-image: url("../images/sort_both.png");
     background-repeat: no-repeat;

@@ -9,21 +9,16 @@
     
     <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
     <link rel="stylesheet" href="home/css/mars.css">
-        <link rel="stylesheet" href="http://www.jq22.com/demo/jQuery-Lightbox20160111/css/swipebox.css">
+    <link rel="stylesheet" href="home/js/lightbox//swipebox.css">
 
     <style>
-            .container{width: 40%;margin: 30px auto;}
-        .container:nth-child(even){background:whitesmoke}
-        .container:nth-child(odd){background:#fff}
-        #box-container{margin:0;padding:0}
-        .box{list-style-type:none;float:left;margin-bottom:1rem;margin-left:1%;margin-right:1%;width:48%}
-        .box:nth-child(2n+1){clear:both;margin-left:0}
-        .box:nth-child(2n+0){margin-right:0}
-        .box a{display:block;width:100%;height:auto}
-        .box a img{-webkit-back-visibility:hidden;display:block;width:100%;height:auto;vertical-align:bottom}
-
-
-</style>
+        .box-container{margin:0;padding:0}
+        .box{list-style-type:none;float:left;margin-bottom:1rem;margin-left:1%;margin-right:1%;width:100px;}
+        .box:nth-child(2n+1){ /* margin-left:0; clear:both; */ }
+        .box:nth-child(2n+0){ /* margin-right:0; */ }
+        .box a{display:block;width:100%;height:auto;}
+        .box a img{-webkit-back-visibility:hidden;display:block;width:100%;height:auto;vertical-align:bottom;}
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -83,33 +78,27 @@
                     <div class="row">
                         <div class="col-xs-8">
                             
-                                    <section id="exemple" class="container">
-        <div class="wrap small-width">
-            <div id="try"></div>
-            <ul id="box-container">
-                <li class="box">
-                    <a href="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/1.jpg" class="swipebox" title="Fog">
-                        <img src="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/1.jpg" alt="image">
-                    </a>
-                </li>
-                <li class="box">
-                    <a href="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/2.jpg" class="swipebox" title="City">
-                        <img src="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/2.jpg" alt="image">
-                    </a>
-                </li>
-                <li class="box">
-                    <a href="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/3.jpg" class="swipebox" title="Street">
-                        <img src="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/3.jpg" alt="image">
-                    </a>
-                </li>
-                <li class="box">
-                    <a href="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/4.jpg" class="swipebox" title="Mustache Guy">
-                        <img src="http://www.jq22.com/demo/jQuery-Lightbox20160111/img/4.jpg" alt="image">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
+                            <section>
+                                <ul class="box-container clearfix">
+                                
+                                    <li class="box">
+                                        <a href="home/images/gallery/uber_icon.jpg" class="swipebox" title="512x512">
+                                            <img src="home/images/gallery/uber_icon.jpg" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="box">
+                                        <a href="home/images/gallery/PM16344_RD_Map-Ads-ANZ-Singapore_320x480-TapAButton_A_@2x.jpg" class="swipebox" title="640x960">
+                                            <img src="home/images/gallery/PM16344_RD_Map-Ads-ANZ-Singapore_320x480-TapAButton_A_@2x.jpg" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="box">
+                                        <a href="home/images/gallery/PM16344_FB_Map-Ads-ANZ-Singapore_1200x628-TapAButton_A.jpg" class="swipebox" title="1280x628">
+                                            <img src="home/images/gallery/PM16344_FB_Map-Ads-ANZ-Singapore_1200x628-TapAButton_A.jpg" alt="image">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </section>
 
 
                         </div>
@@ -219,7 +208,7 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="http://www.jq22.com/demo/jQuery-Lightbox20160111/js/jquery.swipebox.js"></script>
+    <script src="home/js/lightbox/jquery.swipebox.js"></script>
 
     <script>
     $(document).ready(function(){
@@ -244,9 +233,9 @@
         });
 
 
-                    /* Basic Gallery */
-            $( '.swipebox' ).swipebox();
 
+        /* Basic Gallery */
+        $('.swipebox').swipebox();
 
     });
     </script>
