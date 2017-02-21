@@ -5,20 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MarsUI</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
     <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
-    <link rel="stylesheet" href="home/js/lightbox/swipebox.css">
     <link rel="stylesheet" href="home/css/mars.css">
 
-    <style>
-        .box-container{margin:0;padding:0}
-        .box{list-style-type:none;float:left;margin-bottom:1rem;margin-left:1%;margin-right:1%;width:100px;}
-        .box:nth-child(2n+1){ /* margin-left:0; clear:both; */ }
-        .box:nth-child(2n+0){ /* margin-right:0; */ }
-        .box a{display:block;width:100%;height:auto;}
-        .box a img{-webkit-back-visibility:hidden;display:block;width:100%;height:auto;vertical-align:bottom;}
-    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,48 +58,46 @@
 
     
     <div class="page-container">
+        
         <div class="page-content">
 
             <ul class="page-breadcrumb">
                 <li><a href="">首页</a></li>
                 <span>&gt;</span>
-                <li class="active">图库</li>
+                <li class="active">日历</li>
             </ul>
 
-            <div style="padding: 20px 15px;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            
-                            <section>
-                                <ul class="box-container clearfix">
-                                
-                                    <li class="box">
-                                        <a href="home/images/gallery/uber_icon.jpg" class="swipebox" title="512x512">
-                                            <img src="home/images/gallery/uber_icon.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li class="box">
-                                        <a href="home/images/gallery/PM16344_RD_Map-Ads-ANZ-Singapore_320x480-TapAButton_A_@2x.jpg" class="swipebox" title="640x960">
-                                            <img src="home/images/gallery/PM16344_RD_Map-Ads-ANZ-Singapore_320x480-TapAButton_A_@2x.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li class="box">
-                                        <a href="home/images/gallery/PM16344_FB_Map-Ads-ANZ-Singapore_1200x628-TapAButton_A.jpg" class="swipebox" title="1280x628">
-                                            <img src="home/images/gallery/PM16344_FB_Map-Ads-ANZ-Singapore_1200x628-TapAButton_A.jpg" alt="image">
-                                        </a>
-                                    </li>
 
-                                </ul>
-                            </section>
-
-
+            <div class="form-view">
+                
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">选择国家：</label>
+                        <div class="col-xs-3 pl0">
+                            <select class="selectpicker" data-live-search="true">
+                                <option data-tokens="China CN">China</option>
+                                <option data-tokens="Canada CA">Canada</option>
+                                <option data-tokens="Taiwan TW">Taiwan</option>
+                                <option data-tokens="France">France</option>
+                                <option data-tokens="Brazil">Brazil</option>
+                                <option data-tokens="England">England</option>
+                                <option data-tokens="Norway">Norway</option>
+                            </select>
                         </div>
                     </div>
-                </div>
+
+
+                    <div class="form-submit-section">
+                        <button type="submit" class="btn btn-primary" data-loading-text="保存中...">添加</button>
+                        <button type="button" class="btn btn-link">取消</button>
+                    </div>
+                </form>
+
             </div>
 
-        </div><!-- .page-content -->
+        </div>
+        
+        
     </div><!-- .page-container -->
 
     
@@ -119,7 +110,7 @@
                     <span>仪表盘</span>
                 </a>
             </li>
-            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
                 <a class="sidebar-menu-section-title" href="index.html">
                     <i class="glyphicon glyphicon-th-list"></i>
                     <span>表单</span>
@@ -135,7 +126,7 @@
                     <li><a href="simditor.html">富编辑器</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
-            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
                 <a class="sidebar-menu-section-title" href="panel.html">
                     <i class="glyphicon glyphicon-comment"></i>
                     <span>基础组件</span>
@@ -208,7 +199,10 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="home/js/lightbox/jquery.swipebox.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
 
     <script>
     $(document).ready(function(){
@@ -233,10 +227,13 @@
         });
 
 
+        $('.selectpicker').selectpicker({
+            size: 5
+        });
 
-        /* Basic Gallery */
-        $('.swipebox').swipebox();
-
+        $('.selectpicker').on('hidden.bs.select', function(e){
+            // do something...
+        });
     });
     </script>
 </body>
