@@ -112,7 +112,7 @@
                                 <span class="text-muted" style="font-size: 12px;">支持jpg, gif, png格式，图像需小于 50 KB</span>
                             </div>
                             <div class="dropzone-previews">
-                                <ul class="box-container clearfix">
+                                <ul class="box-container clearfix" id="dropzone_images_preview">
                                 
                                     <li class="box">
                                         <a href="home/images/gallery/PM16344_320x480.jpg" class="swipebox" title="640x960">
@@ -409,7 +409,7 @@
             url: "handle-upload.php",
             maxFilesize: 1, // 上传文件的大小限制, 以MB为单位
             acceptedFiles: ".jpeg,.jpg,.png",
-            previewsContainer: '.box-container',
+            previewsContainer: '#dropzone_images_preview',
             previewTemplate: document.getElementById('preview-template').innerHTML,
             thumbnailWidth: null,
             addRemoveLinks: true, // 添加删除链接
