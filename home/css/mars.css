@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.21 build 20170221
+ * @version 1.0.22 build 20170222
  */
 
 /**
@@ -1020,6 +1020,93 @@ background-color: #f0ad4e
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus{
     background-color: #12bdce;
 }
+
+
+/**
+ * lightbox图库
+ * @author 蔡繁荣
+ * @version 1.0.0 build 20170222
+ */
+.box-container{ margin:0;padding:0}
+.box{ 
+    position:relative;
+    float:left;
+    list-style-type:none;
+    margin-bottom:1rem;
+    margin-left:1%;
+    margin-right:1%;
+    width:100px;
+    height: 100px;
+}
+.box:first-child { margin-left: 0; }
+.box:nth-child(2n+1){ /* margin-left:0; clear:both; */ }
+.box:nth-child(2n+0){ /* margin-right:0; */ }
+.box a.swipebox{ 
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fafafa;
+    line-height: 99px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.box a.swipebox:hover{
+    background-color: #f5f5f5;
+}
+.box a.swipebox img{
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: inline;
+    vertical-align: middle;
+}
+/* 结合dropzone文件上传插件 */
+.box.dz-processing a.swipebox:before,
+.box.dz-error a.swipebox:before{ /* 遮罩层 */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.box a.swipebox .box-uploader-content{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-size: 15px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.box.dz-processing a.swipebox div.box-uploader-content,
+.box.dz-error a.swipebox div.box-uploader-content{
+    display: block;
+}
+
+.box.dz-processing.dz-success a.swipebox:before{
+    display: none;
+}
+.box.dz-processing.dz-success a.swipebox div.box-uploader-content{
+    display: none;
+}
+.box .box-uploader-content .icon-warn{
+    color: #f76260;
+    font-size: 25px;
+}
+
+.dz-remove{
+    display: none;
+}
+.box:hover .dz-remove{
+    display: block;
+}
+
 
 
 /**
