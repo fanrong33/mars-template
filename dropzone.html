@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsUI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/dropzone/4.3.0/min/dropzone.min.css">
+    <link rel="stylesheet" href="home/js/lightbox/swipebox.css">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
+    <link rel="stylesheet" href="home/css/mars.css">
+
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body><!-- action: .navigator-collapse -->
+    
+    <nav class="navbar navbar-default navbar-mars navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+            <div class="inverse-sidebar" id="toggle_navigator">
+                <i class="iconfont icon-hamburger"></i>
+            </div>
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="home/images/google_logo.png" alt="" height="30px"></a>
+            </div>
+            
+
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">fanrong33 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">账号管理</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+    <div class="page-container">
+        
+        <div class="page-content">
+
+            <ul class="page-breadcrumb">
+                <li><a href="">首页</a></li>
+                <span>&gt;</span>
+                <li class="active">文件上传</li>
+            </ul>
+
+
+            <div class="form-view">
+                
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">上传图像：</label>
+                        <div class="col-xs-10 pl0">
+                            
+                            <div class="mb10">
+                                <a id="dropzone_icon" class="btn btn-primary btn-sm mr5">上传图像</a>
+                                <span class="text-muted" style="font-size: 12px;">支持jpg, gif, png格式，图像需小于 50 KB</span>
+                            </div>
+                            <div class="dropzone-previews">
+                                <ul class="box-container clearfix" id="dropzone_icon_preview">
+                                
+                                    <li class="box">
+                                        <a href="home/images/gallery/uber_icon.jpg" class="swipebox" title="640x960">
+                                            <img src="home/images/gallery/uber_icon.jpg" alt="image">
+                                            <div class="box-uploader-content">0%</div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <!-- <li class="box">
+                                <a href="javascript:;" class="swipebox" title="">
+                                    <img class="box-image" data-dz-thumbnail>
+                                    <div class="box-uploader-content">0%</div>
+                                </a>
+                            </li> -->
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">上传图像：</label>
+                        <div class="col-xs-10 pl0">
+                            
+                            <div class="mb10">
+                                <a id="dropzone" class="btn btn-primary btn-sm mr5">上传图像</a>
+                                <span class="text-muted" style="font-size: 12px;">支持jpg, gif, png格式，图像需小于 50 KB</span>
+                            </div>
+                            <div class="dropzone-previews">
+                                <ul class="box-container clearfix">
+                                
+                                    <li class="box">
+                                        <a href="home/images/gallery/PM16344_320x480.jpg" class="swipebox" title="640x960">
+                                            <img src="home/images/gallery/PM16344_320x480.jpg" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="box">
+                                        <a href="home/images/gallery/PM16344_1200x628.jpg" class="swipebox" title="1280x628">
+                                            <img src="home/images/gallery/PM16344_1200x628.jpg" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="box dz-processing dz-error dz-complete dz-image-preview">
+                                        <a href="home/images/gallery/PM16344_320x50.jpg" class="swipebox" title="640x100">
+                                            <img src="home/images/gallery/PM16344_320x50.jpg" alt="image">
+                                            <div class="box-uploader-content">
+                                                <i class="iconfont icon-warn" title=""></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="box dz-processing dz-image-preview">
+                                        <a href="home/images/gallery/PM16344_320x50.jpg" class="swipebox" title="640x100">
+                                            <img src="home/images/gallery/PM16344_320x50.jpg" alt="image">
+                                            <div class="box-uploader-content">50%</div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-submit-section hidden">
+                        <button type="submit" class="btn btn-primary" data-loading-text="保存中...">添加</button>
+                        <button type="button" class="btn btn-link">取消</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        
+        
+    </div><!-- .page-container -->
+
+    
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+        
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-section-title" href="dashboard.html">
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <span>仪表盘</span>
+                </a>
+            </li>
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+                <a class="sidebar-menu-section-title" href="index.html">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <span>表单</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="index.html">表格</a></li>
+                    <li><a href="form.html">表单</a></li>
+                    <li><a href="datetimepicker.html">日历</a></li>
+                    <li><a href="bootstrap_select.html">选择框</a></li>
+                    <li><a href="simditor.html">富编辑器</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="panel.html">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>基础组件</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="panel.html">面板</a></li>
+                    <li><a href="nav.html">标签页</a></li>
+                    <li><a href="progress.html">进度条</a></li>
+                    <li><a href="slide_right_modal.html">侧滑模态框</a></li>
+                    <li><a href="gallery.html">图库</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="modal.html">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <span>操作反馈</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="modal.html">模态框</a></li>
+                    <li><a href="tooltip.html">工具提示</a></li>
+                    <li><a href="alert.html">警告框</a></li>
+                    <li><a href="toast.html">吐司</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="line.html">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    <span>报表</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="line.html">折线图</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+                <a class="sidebar-menu-section-title" href="login.html">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>页面</span>
+                </a>
+                <em class="sidebar-drop">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </em>
+
+                <ul class="sidebar-child-menu">
+                    <li><a href="login.html">登录页面</a></li>
+                    <li><a href="login_fullscreen.html">登录页面(全屏)</a></li>
+                    <li><a href="register.html">注册页面</a></li>
+                    <li><a href="edit_password.html">修改密码</a></li>
+                    <li><a href="stats.html">统计报告</a></li>
+                    <li><a href="msg.html">提示页</a></li>
+                </ul><!-- .sidebar-child-menu -->
+            </li><!-- sidebar-menu-item -->
+            
+
+        
+        </ul>
+    </div><!-- .sidebar -->
+    
+    <script id="preview-template" style="display: none;" type="text/template">
+        <li class="box">
+            <a href="javascript:;" class="swipebox" title="">
+                <img class="box-image" data-dz-thumbnail>
+                <div class="box-uploader-content">0%</div>
+            </a>
+        </li>
+    </script>
+<!--
+    <script id="preview-template" style="display: none;" type="text/template">
+    <div class="dz-preview dz-image-preview">
+        <div class="dz-image">
+            <img data-dz-thumbnail />
+        </div>
+        <div class="dz-details">    
+            <div class="dz-size"><span data-dz-size></div>
+            <div class="dz-filename"><span data-dz-name></span></div>  
+        </div>
+        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+        <div class="dz-success-mark"><span>✔</span></div>
+        <div class="dz-error-mark"><span>✘</span></div>
+        <div class="dz-error-message"><span data-dz-errormessage></span></div>
+    </div>
+    </script>
+-->
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/dropzone/4.3.0/min/dropzone.min.js"></script>
+    <script src="home/js/lightbox/jquery.swipebox.js"></script>
+
+    
+
+    <script>
+    $(document).ready(function(){
+
+        // 绑定折叠侧边菜单栏事件
+        $("#toggle_navigator").click(function(){
+            $(this).toggleClass('fold');
+
+            $("body").toggleClass('navigator-collapse');
+        });
+
+
+        // 侧边菜单箭头事件绑定
+        $("#sidebar .sidebar-drop").click(function(){
+
+            if(!$(this).parent().hasClass('expand')){
+                $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
+            }
+
+            $(this).parent().toggleClass('expand');
+
+        });
+
+
+        /* Basic Gallery */
+        $('.swipebox').swipebox();
+
+
+        // 绑定dropzone上传文件
+        // http://wxb.github.io/dropzonejs.com.zh-CN/dropzonezh-CN
+        var dropz_icon = new Dropzone("#dropzone_icon", {
+            url: "handle-upload.php",
+            maxFilesize: 1, // 上传文件的大小限制, 以MB为单位
+            acceptedFiles: ".jpeg,.jpg,.png",
+            previewsContainer: false, // 不定义文件预览显示位置
+            previewTemplate: document.getElementById('preview-template').innerHTML,
+            thumbnailWidth: null,
+            addRemoveLinks: false, // 添加删除链接
+            dictRemoveFile: '删除图像',
+            init: function() {
+                // error -> thumbnail
+                // processing -> thumbnail -> uploadprogress -> success -> complete
+                that = this;
+                that.on("error", function(file, errorMessage){ 
+                    console.log('error');
+                    var html = ''+
+                    '<li class="box dz-error dz-complete dz-image-preview">'+
+                    '    <a href="" class="swipebox" title="">'+
+                    '        <img src="" alt="image">'+
+                    '        <div class="box-uploader-content"><i class="iconfont icon-warn" title="'+errorMessage+'"></i></div>'+
+                    '    </a>'+
+                    '</li>';
+                    $("#dropzone_icon_preview").html(html);
+                });
+                that.on("processing", function(file){
+                    // 只有验证成功，才会进入这里
+                    console.log('processing');
+
+                    if($("#dropzone_icon_preview").find('.dz-image-preview').length == 1){ // 错误
+                        previewElement = $("#dropzone_icon_preview").find('.dz-image-preview').get(0);
+                        previewElement.classList.remove('dz-error');
+                        previewElement.classList.remove('dz-success');
+                        previewElement.classList.add('dz-processing');
+                    }
+                });
+                that.on("thumbnail", function(file, dataUrl){
+                    console.log('thumbnail');
+                    console.info(file);
+
+                    if($("#dropzone_icon_preview").find('.dz-error').length == 1){ // 错误
+                        previewElement = $("#dropzone_icon_preview").find('.dz-image-preview').get(0);
+                        previewElement.querySelector('img').src = dataUrl;
+                    }else{ // 成功
+                        var html = ''+
+                        '<li class="box dz-processing dz-image-preview">'+
+                        '    <a href="" class="swipebox" title="">'+
+                        '        <img src="'+dataUrl+'" alt="image">'+
+                        '        <div class="box-uploader-content">0%</div>'+
+                        '    </a>'+
+                        '</li>';
+                        $("#dropzone_icon_preview").html(html);
+                    }
+                });
+                that.on("uploadprogress", function(file, percentage, sendbytes){
+                    var previewElement = $("#dropzone_icon_preview").find('.dz-image-preview').get(0);
+                    // 设置上传百分比
+                    previewElement.querySelector('.box-uploader-content').innerHTML = parseInt(percentage)+'%';
+                });
+                // 文件已经成功上传，获得服务器返回信息作为第二个参数
+                that.on("success", function(file, json) {
+                    console.info(file);
+
+                    if(json.status == 1){
+                        var previewElement = $("#dropzone_icon_preview").find('.dz-image-preview').get(0);
+                        // 大图，title
+                        previewElement.querySelector('.swipebox').setAttribute('href', "/"+json.data.url);
+                        previewElement.querySelector('.swipebox').setAttribute('title', json.data.title);
+
+                        previewElement.classList.add('dz-success');
+                        previewElement.classList.add('dz-complete');
+                        previewElement.classList.remove('dz-processing');
+                    }
+                });
+                // 当上传完成，成功或者出现错误时调用.
+                that.on("complete", function(file){
+                    
+                    // document.querySelector('.file').innerText = "File " + file.name + " uploaded";
+                });
+            }
+        });
+        
+
+
+        // 绑定dropzone多上传文件
+        // http://wxb.github.io/dropzonejs.com.zh-CN/dropzonezh-CN
+        var dropz = new Dropzone("#dropzone", {
+            url: "handle-upload.php",
+            maxFilesize: 1, // 上传文件的大小限制, 以MB为单位
+            acceptedFiles: ".jpeg,.jpg,.png",
+            previewsContainer: '.box-container',
+            previewTemplate: document.getElementById('preview-template').innerHTML,
+            thumbnailWidth: null,
+            addRemoveLinks: true, // 添加删除链接
+            dictRemoveFile: '删除图像',
+            init: function() {
+                this.on("uploadprogress", function(file, percentage, sendbytes){
+                    // 设置上传百分比
+                    file.previewElement.querySelector('.box-uploader-content').innerHTML = parseInt(percentage)+'%';
+                });
+                // 文件已经成功上传，获得服务器返回信息作为第二个参数
+                this.on("success", function(file, json) {
+                    if(json.status == 1){
+                        // 大图，title
+                        file.previewElement.querySelector('.swipebox').setAttribute('href', "/"+json.data.url);
+                        file.previewElement.querySelector('.swipebox').setAttribute('title', json.data.title);
+                    }
+                });
+                this.on("error", function(file, errorMessage){
+                    // 错误icon
+                    file.previewElement.querySelector('.box-uploader-content').innerHTML = '<i class="iconfont icon-warn" title="'+errorMessage+'"></i>';
+                });
+                // 当上传完成，成功或者出现错误时调用.
+                this.on("complete", function(file){
+                    // document.querySelector('.file').innerText = "File " + file.name + " uploaded";
+                });
+            }
+        });
+
+
+    });
+
+    </script>
+</body>
+</html>
