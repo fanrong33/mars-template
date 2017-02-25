@@ -108,7 +108,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 36px; text-align: center;">
-                                    <input id="select_all_checkbox" type="checkbox" onclick="select_all(this, '#page_list tbody', toggle_btn_display_callback)" value="">
+                                    <input id="select_all_checkbox" name="id[]" type="checkbox" onclick="select_all(this, '#page_list tbody', toggle_btn_display_callback)" value="">
                                 </th>
                                 <th>名称</th>
                                 <th style="width:120px;">平台</th>
@@ -413,16 +413,23 @@
      * @param  {String}    container   子checkbox容器节点，例如'#item_list tbody'
      * @param  {Function}  callback    回调函数，例如选中后，处理'从列表下架'按钮的显示 toggle_display_callback: function(is_checked)
      * @author 蔡繁荣
-     * @version 1.0.1 build 20170208
+     * @version 1.0.2 build 20170225
      */
     function select_all(obj, container, callback){
         var is_checked = obj.checked;
+        var name = obj.name;
+        name = name.replace('[]', '');
 
-        $(container + " :checkbox:enabled").each(function(){
+        if(name == ''){
+            alert('input必须包含name属性');
+            return;
+        }
+
+        $(container + " input[name^="+name+"]:checkbox:enabled").each(function(){
             this.checked = is_checked;
         });
 
-        var checked = $(container+" input:checkbox:checked:enabled").length;
+        var checked = $(container+" input[name^="+name+"]:checkbox:checked:enabled").length;
 
         callback && callback(checked);
     }
@@ -434,13 +441,20 @@
      * @param  {String}   all_checkbox  全选checkbox节点，例如'#select_all_checkbox'
      * @param  {Function} callback      回调函数，例如选中后，处理‘从列表下架’按钮的显示
      * @author 蔡繁荣
-     * @version 1.0.1 build 20170208
+     * @version 1.0.2 build 20170225
      */
     function select_one(obj, container, all_checkbox, callback){
         var is_checked = obj.checked;
-        
-        var total   = $(container+" input:checkbox:enabled").length;
-        var checked = $(container+" input:checkbox:checked:enabled").length;
+        var name = obj.name;
+        name = name.replace('[]', '');
+
+        if(name == ''){
+            alert('input必须包含name属性');
+            return;
+        }
+
+        var total   = $(container+" input[name^="+name+"]:checkbox:enabled").length;
+        var checked = $(container+" input[name^="+name+"]:checkbox:checked:enabled").length;
 
 
         if(is_checked){
