@@ -80,7 +80,7 @@
                         <label for="inputEmail3" class="col-xs-2 control-label">代码位名称：</label>
                         <div class="col-xs-3 pl0">
                             <span class="text-required">*</span>
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="" required>
                         </div>
                         <div class="col-xs-3 pl0">
                             <div class="help-block">少于40个字符</div>
@@ -270,6 +270,8 @@
     <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-validate/1.14.0/additional-methods.min.js"></script>
 
     <script>
     $(document).ready(function(){
@@ -299,35 +301,12 @@
         elems.forEach(function(checkbox_elem) {
           var switchery = new Switchery(checkbox_elem, { color: '#12bdce', size: 'small' });
         });
+
+
+
+        $("form").validate();
+
     });
-
-
-    $(function(){
-        //先选出 textarea 和 统计字数 dom 节点
-        var wordCount = $("#wordCount");
-        var textArea = wordCount.find("textarea");
-        var word = wordCount.find(".word");
-
-        //调用
-        statInputNum(textArea, word);
-    });
-
-    /*
-    * 剩余字数统计
-    * 注意 最大字数只需要在放数字的节点哪里直接写好即可 如：<var class="word">200</var>
-    */
-    function statInputNum(textArea, numItem) {
-
-        var max = numItem.text(),
-            curLength;
-
-        textArea[0].setAttribute("maxlength", max);
-        curLength = textArea.val().length;
-        numItem.text(max - curLength);
-        textArea.on('input propertychange', function(){
-            numItem.text(max - $(this).val().length);
-        });
-    }
     </script>
 </body>
 </html>
