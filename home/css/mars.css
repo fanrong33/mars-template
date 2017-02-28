@@ -241,7 +241,7 @@ button:hover{
  * @author 蔡繁荣
  * @version 1.0.0 build 20170228
  */
-.form-group input.error { border: 1px solid #dc6768; }
+.form-group input.error { border: 1px solid rgba(220, 103, 104, .8); }
 .form-group input.error:focus{
     border-color: rgb(220, 103, 104);
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(220, 103, 104,.6);
@@ -250,6 +250,7 @@ button:hover{
 .form-group label.error,
 .form-group span.error {
     display: inline-block;
+    margin-bottom: 0;
     padding-left: 0px;
     padding-top: 8px;
     font-size: 12px;
