@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.22 build 20170222
+ * @version 1.0.23 build 20170228
  */
 
 /**
@@ -234,6 +234,29 @@ button:hover{
 .form-submit-section .btn {
     padding: 6px 50px;
 }
+
+
+/**
+ * jquery validate
+ * @author 蔡繁荣
+ * @version 1.0.0 build 20170228
+ */
+.form-group input.error { border: 1px solid #dc6768; }
+.form-group input.error:focus{
+    border-color: rgb(220, 103, 104);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(220, 103, 104,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(220, 103, 104,.6);
+}
+.form-group label.error,
+.form-group span.error {
+    display: inline-block;
+    padding-left: 0px;
+    padding-top: 8px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #dc6768;
+}
+
 
 .dropdown-menu{
     border-radius: 0;
