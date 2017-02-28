@@ -90,6 +90,9 @@ a:hover, a:focus{
     white-space: nowrap;
 }
 .text-required{ color: #ca0808; }
+.text-success{ color: #30ab10;}
+.text-danger{ color: #dc6768;}
+.text-warning{ color: #f80;}
 
 .inline-block{
     display: inline-block;
