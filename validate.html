@@ -74,9 +74,9 @@
                         <label class="col-xs-2 control-label">代码位名称：</label>
                         <div class="col-xs-3 pl0">
                             <span class="text-required">*</span>
-                            <input type="text" class="form-control" name="name" placeholder="" required maxlength="40">
+                            <input type="text" class="form-control" name="name" placeholder="" required maxlength="10">
                         </div>
-                        <div class="col-xs-3 pl0"><div class="help-block">少于40个字符</div></div>
+                        <div class="col-xs-3 pl0"><div class="help-block">少于10个字符</div></div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label">电子邮箱：</label>
@@ -94,23 +94,28 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">Min Version：</label>
-                        <div class="col-xs-3 pl0">
-                            <input type="integer" class="form-control" name="minVersion" value="">
+                        <label class="col-xs-2 control-label">金额：</label>
+                        <div class="col-xs-2 pl0">
+                            <span class="text-required">*</span>
+                            <input type="text" class="form-control" name="price" value="" required  onkeyup="input_price(this, 999999)" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
+                            <div class="help-block" style="white-space: nowrap;">只能输入数字、负号和小数点(最多小数点后两位)</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">价格：</label>
+                        <label class="col-xs-2 control-label">市场价：</label>
                         <div class="col-xs-2 pl0">
                             <span class="text-required">*</span>
-                            <input type="text" class="form-control" name="price" value="">
+                            <input type="text" class="form-control" name="sale_price" value="" required  onkeyup="input_number(this)" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
+                            <div class="help-block" style="white-space: nowrap;">只能输入大于等于0的数字和小数点(最多小数点后两位)</div>
                         </div>
                     </div>
+                    
+
                     <div class="form-group">
                         <label class="col-xs-2 control-label">正整数：</label>
                         <div class="col-xs-2 pl0">
                             <span class="text-required">*</span>
-                            <input type="text" class="form-control" name="neg_integer" value="" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+                            <input type="text" class="form-control" name="neg_integer" value="" onkeyup="input_integer(this)" onafterpaste="input_integer(this)">
                             <div class="help-block">只能输入大于0的正整数</div>
                         </div>
                     </div>
@@ -131,6 +136,18 @@
                         </div>
                     </div>
                     
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">密码：</label>
+                        <div class="col-xs-2 pl0">
+                            <input type="password" class="form-control" id="password" name="password" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">确认密码：</label>
+                        <div class="col-xs-2 pl0">
+                            <input type="password" class="form-control" name="confirm_password" value="">
+                        </div>
+                    </div>
                     
                     <div class="form-group">
                         <label class="col-xs-2 control-label">备注信息：</label>
@@ -327,7 +344,7 @@
             errorPlacement: function(error, element){
                 $(element).parent().append(error);
 
-
+                // 支持help-block的正确显示
                 var $help_block = $(element).parent().find('.help-block');
                 if($help_block.length == 1){
                     $(element).data('help-block', $help_block);
@@ -337,40 +354,92 @@
             success: function(label, element){
                 label.remove();
 
+                // 支持help-block的正确显示
                 var $help_block = $(element).data('help-block');
                 if(typeof($help_block) != "undefined"){
                     $(element).parent().append($help_block);
                 }
             },
             rules: {
-                price: {
-                    number: true
-                },
-                neg_integer: {
-                    number: true
-                }
-            },
-            messages: {
-                name: {
-                    required: '请填写代码位名称',
-                    maxlength: "少于40个字符"
-                },
-                email: {
-                    required: "请填写电子邮箱",
-                    email: "邮箱格式错误"
-                },
-                url: {
-                    required: "请填写URL地址",
-                    url: "URL格式错误"
-                },
-                price: {
-                    number: "价格格式错误"
+                confirm_password: {
+                    equalTo: "#password"
                 }
             }
         });
         
 
     });
+
+    // message_cn.js
+    jQuery.extend(jQuery.validator.messages, {
+        required: function(a, input){ 
+            var label = $(input).closest('.form-group').find('label.control-label').text();
+            label = label.replace("：", "");
+            label = label.replace(":", "");
+            return '请填入'+label;
+        },
+        email: "电子邮件格式错误",
+        url: "请输入合法的网址",
+        date: "请输入合法的日期",
+        number: "请输入合法的数字",
+        digits: "只能输入整数",
+        remote:"请修正该字段",
+        dateISO: "请输入合法的日期(ISO).",
+        creditcard: "请输入合法的信用卡号",
+        equalTo: "请再次输入相同的值",
+        accept: "请输入拥有合法后缀名的字符串",
+        maxlength:jQuery.validator.format("少于{0}个字符串"),
+        minlength:jQuery.validator.format("最少{0}个字符串"),
+        rangelength:jQuery.validator.format("请输入一个长度介于{0}和{1}之间的字符串"),
+        range:jQuery.validator.format("请输入一个介于{0}和{1}之间的值"),
+        max: jQuery.validator.format("请输入一个最大为{0}的值"),
+        min: jQuery.validator.format("请输入一个最小为{0}的值")
+    });
+
+    /**
+     * 只能输入价格格式的数字
+     * -.
+     * @param  {[type]} obj [description]
+     * @param  {[type]} num   支持最大数
+     */
+    function input_price(obj, num) {
+        //先把非数字的都替换掉，除了数字和.
+        obj.value = obj.value.replace(/[^\d.-]/g, "");
+        //必须保证第一个为数字而不是.
+        obj.value = obj.value.replace(/^\./g, "");
+        //保证只有出现一个.而没有多个.
+        obj.value = obj.value.replace(/\.{2,}/g, ".");
+        //保证.只出现一次，而不能出现两次以上
+        obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+        //保证商品单价只能输入两位小数
+        obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".").replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+        if(typeof(num) == 'undefined'){
+            num = 999999; // 默认最大数为999999
+        }
+        if (Number(obj.value) > num) {
+            obj.value = num;
+        }
+    }
+
+    /**
+     * 使文本框 只能输入 +.数
+     * @param  {[type]} obj [description]
+     * @return {[type]}     [description]
+     */
+    function input_number(obj) {
+        var value = $(obj).val();
+        // value = value.replace(/[^\d\.]/g, '');
+        value = value.replace(/[^\d.]/g, "").replace(/^\./g, "").replace(/\.{2,}/g, ".").replace(".", "$#$").replace(/\./g, "").replace("$#$", ".").replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+        $(obj).val(value);
+    }
+
+    /**
+     * 只能输入正整数
+     * @param  {[type]} obj [description]
+     */
+    function input_integer(obj) {
+        if(obj.value.length==1){obj.value=obj.value.replace(/[^1-9]/g,'')}else{obj.value=obj.value.replace(/\D/g,'')}
+    }
     </script>
 </body>
 </html>
