@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MarsUI</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_q8969xdo3baz6w29.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
     <link rel="stylesheet" href="home/css/mars.css">
 
+    <style>
+        .word-count-container{ position:relative;}
+        .word-count-container textarea{ width: 100%; }
+        .word-count-container .word-wrap{ position:absolute; right: 20px; bottom: 5px;font-style: italic;}
+        .word-count-container .word{color: #ca0808; padding: 0 3px;}
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,43 +63,52 @@
 
     
     <div class="page-container">
+        
         <div class="page-content">
 
             <ul class="page-breadcrumb">
                 <li><a href="">首页</a></li>
                 <span>&gt;</span>
-                <li class="active">发送成功页面</li>
+                <li class="active">剪切板</li>
             </ul>
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-9" style="padding: 20px 30px;">
 
-
-              			<div class="panel-view">
-
-		                    <div class="panel panel-default mt20">
-		                       
-		                        <div class="panel-body">
-			                        <div class="send">
-			                        	<b>✅</b>
-			                        	<div class="send-info">恭喜您，邮件发送已经发送成功！<P>请在30分钟内登录你的邮箱重置密码信息。</P></div>
-			                        </div>
-	                        	</div>
-
-	                    	</div><!-- .panel-default -->
-
-
-                		</div><!-- .panel-view -->
-
-
+            <div class="form-view">
+                
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-xs-2 control-label">Zone ID:</label>
+                        <div class="col-xs-4 pl0">
+                            <input type="text" class="form-control j-clipboard" id="appkey" value="9043aa8dbb88018364d2c3a0aeafc9e6" readonly="" data-clipboard-target="#appkey" onblur="function(){ document.getElementById('clip_help').innerText='Click to copy'; }">
+                            <div class="help-block mb0" id="clip_help">Click to copy</div>
+                        </div>
                     </div>
-                </div>
+                    
+                   <!--  <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-10  pl0">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> 记住我</label>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10  pl0">
+                            <button type="submit" class="btn btn-primary">添加</button>
+                        </div>
+                    </div> -->
+
+
+                    <div class="form-submit-section">
+                        <button type="submit" class="btn btn-primary" data-loading-text="保存中...">添加</button>
+                        <a class="btn btn-link">取消</a>
+                    </div>
+                </form>
+
             </div>
 
-            
-
-        </div><!-- .page-content -->
+        </div>
+        
+        
     </div><!-- .page-container -->
 
     
@@ -105,7 +121,7 @@
                     <span>仪表盘</span>
                 </a>
             </li>
-            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
                 <a class="sidebar-menu-section-title" href="index.html">
                     <i class="glyphicon glyphicon-th-list"></i>
                     <span>表单</span>
@@ -142,7 +158,7 @@
                     <li><a href="gallery.html">图库</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
-            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
                 <a class="sidebar-menu-section-title" href="modal.html">
                     <i class="glyphicon glyphicon-ok"></i>
                     <span>操作反馈</span>
@@ -186,7 +202,7 @@
                     <li><a href="register.html">注册页面</a></li>
                     <li><a href="edit_password.html">修改密码</a></li>
                     <li><a href="stats.html">统计报告</a></li>
-                    <li><a href="send_success.html">发送成功页面</a></li>
+                    <li><a href="msg.html">提示页</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
             
@@ -196,9 +212,11 @@
     </div><!-- .sidebar -->
     
 
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="home/js/toastr/toastr.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+
     <script>
     $(document).ready(function(){
 
@@ -222,7 +240,22 @@
         });
 
 
+        // 绑定input点击事件复制内容到剪切板
+        var clipboard = new Clipboard('.j-clipboard');
+        clipboard.on('success', function(e) {
+
+            $(e.trigger).next().text('Copied text to clipboard');
+            // e.clearSelection();
+        });
+
+
+
     });
+
+    function reset_clip_help(){
+        document.getElementById('clip_help').innerText='Click to copy';
+    }
+
     </script>
 </body>
 </html>

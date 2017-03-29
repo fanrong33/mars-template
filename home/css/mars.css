@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.23 build 20170228
+ * @version 1.0.25 build 20170329
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -14,7 +14,7 @@
 html,body{
     margin: 0;
     font-size: 14px;
-    font-family: arial,verdana,"Hiragino Sans GB",Hiragino Sans GB,"\5B8B\4F53";
+    font-family: "Hiragino Sans GB",Hiragino Sans GB,Arial,verdana,"\5B8B\4F53";
     -webkit-font-smoothing: antialiased;
 }
 body{
