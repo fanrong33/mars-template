@@ -9,7 +9,31 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/switchery/0.8.2/switchery.min.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
     <link rel="stylesheet" href="home/css/mars.css">
+    <style>
+            .navbar-fixed-top{
+            z-index: 999;
+        }
+        .changelog-badge{
+            position: relative;
+            width: 133px;
+        }
+        .changelog-badge #HW_badge_cont{
+            width: 110px;
+            height: auto;
+        }
+        .changelog-badge #HW_badge_cont:before {
+            content: "Release notes";
+        }
+        .changelog-badge #HW_badge {
+            position: absolute;
+            top: 3px;
+            right: 0;
+            left: auto;
 
+            background: #fc0d1b;
+        }
+
+</style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,6 +66,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a class="changelog-badge"></a></li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">fanrong33 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -281,6 +306,14 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="http://cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
+    <script src="//cdn.headwayapp.co/widget.js"></script>
+    <script>
+      var HW_config = {
+        selector: ".changelog-badge", // CSS selector where to inject the badge
+        account: "7zpWKy" // your account ID
+      };
+      Headway.init(HW_config);
+    </script>
     <script>
     $(document).ready(function(){
 
