@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.23 build 20170228
+ * @version 1.0.25 build 20170402
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -216,7 +216,7 @@ button:hover{
     font-size: 12px;
     color: #999;
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 0;
 }
 .form-submit-section {
     margin: 0;
