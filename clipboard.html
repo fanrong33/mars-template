@@ -79,8 +79,8 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-xs-2 control-label">Zone ID:</label>
                         <div class="col-xs-4 pl0">
-                            <input type="text" class="form-control j-clipboard" id="appkey" value="9043aa8dbb88018364d2c3a0aeafc9e6" readonly="" data-clipboard-target="#appkey" onblur="function(){ document.getElementById('clip_help').innerText='Click to copy'; }">
-                            <div class="help-block mb0" id="clip_help">Click to copy</div>
+                            <input type="text" class="form-control j-clipboard" id="appkey" value="9043aa8dbb88018364d2c3a0aeafc9e6" readonly="" data-clipboard-target="#appkey" onblur="reset_clip_help(this)">
+                            <div class="help-block mb0">Click to copy</div>
                         </div>
                     </div>
                     
@@ -253,8 +253,8 @@
 
     });
 
-    function reset_clip_help(){
-        document.getElementById('clip_help').innerText='Click to copy';
+    function reset_clip_help(obj){
+        $(obj).next().text('Clilck to copy');
     }
 
     </script>
