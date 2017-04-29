@@ -5,11 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MarsUI</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/home/js/jquery-autosuggest/jquery.autoSuggest.css">
+
+
     <link rel="stylesheet" href="//at.alicdn.com/t/font_fxrisq8n6euvunmi.css">
     <link rel="stylesheet" href="home/css/mars.css">
+    <style>
+        ul.as-selections{height: auto;}
+        div.as-results{position: absolute;top: 33px;left: 0;z-index: 9;}
 
+        .form-group .bootstrap-tagsinput{
+                border-radius: 0;
+            border-color: #ddd;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+                width: 100%;
+        }
+        .form-group .bootstrap-tagsinput.focus {
+            border-color: #72cfd8;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+        }
+
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,33 +76,41 @@
 
     
     <div class="page-container">
+        
         <div class="page-content">
 
             <ul class="page-breadcrumb">
                 <li><a href="">首页</a></li>
                 <span>&gt;</span>
-                <li class="active">标签页</li>
+                <li class="active">Tags 输入框</li>
             </ul>
 
-            <div style="padding: 20px 15px;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4>基本实例</h4>
 
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"><a href="#">Home</a></li>
-                                <li role="presentation" class="active"><a href="#">Profile</a></li>
-                                <li role="presentation"><a href="#">Messages</a></li>
-                                <li role="presentation"><a href="#">Setting</a></li>
-                            </ul>
+            <div class="form-view">
+                
+                <form class="form-horizontal" role="form" method="POST">
 
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">Tags
+                        <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="bottom" title="" data-original-title="Assign and subsequently search by personalized tags.">?</i>
+                        </label>
+                        <div class="col-xs-5 pl0">
+                            <input type="text" class="form-control" name="tags" value="iOS" data-role="tagsinput" placeholder="Start entering tags ...">
                         </div>
                     </div>
-                </div>
+
+
+                    <div class="form-submit-section">
+                        <button type="submit" class="btn btn-primary" data-loading-text="保存中...">添加</button>
+                        <button type="button" class="btn btn-link">取消</button>
+                    </div>
+                </form>
+
             </div>
 
-        </div><!-- .page-content -->
+        </div>
+        
+        
     </div><!-- .page-container -->
 
     
@@ -95,7 +123,7 @@
                     <span>仪表盘</span>
                 </a>
             </li>
-            <li class="sidebar-menu-item sidebar-menu-item-has-child">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
                 <a class="sidebar-menu-section-title" href="index.html">
                     <i class="glyphicon glyphicon-th-list"></i>
                     <span>表单</span>
@@ -117,7 +145,7 @@
                     <li><a href="clipboard.html">剪切板</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
-            <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
+            <li class="sidebar-menu-item sidebar-menu-item-has-child">
                 <a class="sidebar-menu-section-title" href="panel.html">
                     <i class="glyphicon glyphicon-comment"></i>
                     <span>基础组件</span>
@@ -190,6 +218,10 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+
+
     <script>
     $(document).ready(function(){
 
@@ -203,13 +235,21 @@
 
         // 侧边菜单箭头事件绑定
         $("#sidebar .sidebar-drop").click(function(){
+
             if(!$(this).parent().hasClass('expand')){
                 $("#sidebar .sidebar-menu-item.expand").removeClass('expand');
             }
-
             $(this).parent().toggleClass('expand');
+
         });
 
+        $('.tooltip-help').tooltip();
+
+
+        // more view: http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+        $('input[name=tags]').tagsinput({
+
+        });
 
     });
     </script>
