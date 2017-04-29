@@ -1,13 +1,13 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.25 build 20170402
+ * @version 1.0.26 build 20170429
  * @tool http://tool.oschina.net/jscompress
  */
 
 /**
  * 主色:   #0ea6b2
- * hover: #0d929e
+ * hover:  #0d929e
  * active: #0d828d;
  */
 @charset "UTF-8";
@@ -1136,6 +1136,22 @@ background-color: #f0ad4e
     display: block;
 }
 
+
+/**
+ * tagsinput插件
+ */
+.form-group .bootstrap-tagsinput{
+    border-radius: 0;
+    border-color: #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+        width: 100%;
+}
+.form-group .bootstrap-tagsinput.focus {
+    border-color: #72cfd8;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(114,207,216,.6);
+}
 
 
 /**
