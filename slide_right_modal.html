@@ -200,7 +200,7 @@
                     <li><a href="validate.html">表单验证</a></li>
                     <li><a href="dropzone.html">文件上传</a></li>
                     <li><a href="simditor.html">富编辑器</a></li>
-<li><a href="clipboard.html">剪切板</a></li>
+                    <li><a href="clipboard.html">剪切板</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
             <li class="sidebar-menu-item sidebar-menu-item-has-child active expand">
@@ -367,6 +367,12 @@
         $("#toggle_navigator").click(function(){
             $(this).toggleClass('fold');
 
+            // important!
+            if($("#slideModal").length > 0 && $("body").hasClass('navigator-collapse') && $("#slideModal").is(':visible')){
+                $("#slideModal").css({ top: 60 });
+                $("#slideModal .modal-backdrop").css({ top: 60 });
+            }
+            
             $("body").toggleClass('navigator-collapse');
         });
 
@@ -419,12 +425,42 @@
 
 
 
+
         $('#slideModal').on('show.bs.modal', function (event) {
 
             var $button = $(event.relatedTarget);
             var offerId = $button.data('offerid');
             
+            if($("body").hasClass('navigator-collapse')){
+                scroll_top = $(document).scrollTop();
+                // 0    60
+                // 39   21
+                // 60   0
+                // 100  0
+                if(scroll_top - 60 >= 0){
+                    unstable_top = 0;
+                }else{
+                    unstable_top = 60 - scroll_top;
+                }
+
+                $("#slideModal").css({ top: unstable_top });
+            }
+
             init_offer(offerId);
+        });
+
+        $('#slideModal').on('shown.bs.modal', function (event) {
+
+            if($("body").hasClass('navigator-collapse')){
+                scroll_top = $(document).scrollTop();
+                if(scroll_top - 60 >= 0){
+                    unstable_top = 0;
+                }else{
+                    unstable_top = 60 - scroll_top;
+                }
+
+                $("#slideModal .modal-backdrop").css({ top: unstable_top });
+            }
         });
 
 
@@ -453,6 +489,7 @@
     }
 
     </script>
+
 
     <!-- Offer详情模态对话框模板 -->
     <script id="tpl_offer_detail" type="text/template">
