@@ -1,5 +1,5 @@
 # mars-template
-🌏 A custom background template based on Bootstrap.
+🌏 A custom background template based on Bootstrap. Use existing experience for agile development.
 
 ![chi1](home/images/preview.png)
 
