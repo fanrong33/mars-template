@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.27 build 20170514
+ * @version 1.0.28 build 20170515
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -937,6 +937,7 @@ background-color: #f0ad4e
 .modal.slide-right{
     left: 170px;
     top: 60px;
+    z-index: 999; /* modal over dropdown menu */
 }
 .navigator-collapse .modal.slide-right{
     left: 55px;
