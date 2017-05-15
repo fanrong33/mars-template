@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.26 build 20170429
+ * @version 1.0.27 build 20170514
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -857,6 +857,18 @@ footer{
     border-bottom-color: transparent;
 }
 
+
+.nav-pills>li>a {
+    border-radius: 1px;
+    font-size: 13px;
+}
+.nav-pills>li>a {
+    padding: 5px 12px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #fff;
+    background-color: #12bdce;
+}
 
 
 /**
