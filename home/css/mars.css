@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.28 build 20170515
+ * @version 1.0.29 build 20170523
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -112,6 +112,15 @@ a:hover, a:focus{
 .highlight-fade {
     animation: yellowfade 1.2s;
 }
+
+.user-select-none{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
 
 /* mars主题按钮样式 */
 input,button,select,textarea{ outline:0; font-size: 12px;}
