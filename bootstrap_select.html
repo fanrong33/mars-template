@@ -75,9 +75,9 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">选择国家：</label>
                         <div class="col-xs-3 pl0">
-                            <select class="selectpicker" data-live-search="true">
-                                <option data-tokens="China CN">China</option>
+                            <select class="selectpicker show-tick form-control" data-live-search="true" data-max-options="1" data-size="6">
                                 <option data-tokens="Canada CA">Canada</option>
+                                <option data-tokens="China CN" selected>China</option>
                                 <option data-tokens="Taiwan TW">Taiwan</option>
                                 <option data-tokens="France">France</option>
                                 <option data-tokens="Brazil">Brazil</option>
@@ -130,7 +130,7 @@
                     <li><a href="validate.html">表单验证</a></li>
                     <li><a href="dropzone.html">文件上传</a></li>
                     <li><a href="simditor.html">富编辑器</a></li>
-<li><a href="clipboard.html">剪切板</a></li>
+                    <li><a href="clipboard.html">剪切板</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
             <li class="sidebar-menu-item sidebar-menu-item-has-child">
@@ -208,7 +208,8 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script-->
-    <script src="//cdn.bootcss.com/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <!--<script src="//cdn.bootcss.com/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>-->
+    <script src="/home/js/bootstrap-select/bootstrap-select.min.js"></script>
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script-->
 
@@ -222,7 +223,6 @@
             $("body").toggleClass('navigator-collapse');
         });
 
-
         // 侧边菜单箭头事件绑定
         $("#sidebar .sidebar-drop").click(function(){
 
@@ -235,10 +235,11 @@
         });
 
 
-
-        $('.selectpicker').selectpicker({
-            size: 5
-        });
+        // 不需要显示声明，直接使用html5 data-属性
+        // $('.selectpicker').selectpicker({
+        //     liveSearch: true,
+        //     size: 5
+        // });
 
         $('.selectpicker').on('hidden.bs.select', function(e){
             // do something...
