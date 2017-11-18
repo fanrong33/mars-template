@@ -154,7 +154,7 @@
                                     <span class="text-muted">ID: 823324</span>
                                 </td>
                                 <td><i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i></td>
-                                <td class="j-editable" data-id="24" data-field="weight" data-url="update_property.json">100</td>
+                                <td class="j-editable" data-id="24" data-field="weight" data-type="integer" data-url="update_property.json">100</td>
                                 <td><span class="text-success">通过</span></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004" checked ></td>
                                 <td>
@@ -176,7 +176,7 @@
                                     <span class="text-muted">ID: 823325</span>
                                 </td>
                                 <td><i class="iconfont icon-android" style="font-size: 22px;color: #97C03C;"></i></td>
-                                <td class="j-editable" data-id="25" data-field="weight" data-url="update_property.json">99</td>
+                                <td class="j-editable" data-id="25" data-field="weight" data-type="integer" data-url="update_property.json">99</td>
                                 <td>未通过 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="bottom" title="拒绝理由：应用信息填写不完整或财务信息未通过审核，请在财务信息通过审核后完善信息，重新编辑发起联盟审核。">?</i></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004"></td>
                                 <td>
@@ -496,21 +496,28 @@
 
         /**
          * 行内可编辑控件
-         * @param 
+         * @param integer id
+         * @param string field
+         * @param string type  integer,url
+         * @param string url
          * @author fanrong33
-         * @version 1.0.0 build 20171118
+         * @version 1.0.1 build 20171118
          */
         $(".j-editable").click(function() {
             var $this = $(this);
 
             var id    = $this.data('id');
             var field = $this.data('field');
+            var type  = $this.data('type');
             var url   = $this.data('url');
             if(typeof(id) == 'undefined'){
                 alert('data-id is missing');
             }
             if(typeof(field) == 'undefined'){
                 alert('data-field is missing');
+            }
+            if(typeof(type) == 'undefined'){
+                alert('data-type is missing');
             }
             if(typeof(url) == 'undefined'){
                 alert('data-url is missing');
@@ -519,7 +526,12 @@
             if(!$this.hasClass('editor')){
                 $this.addClass('editor');
                 var content = $.trim($this.text());
-                var html = '<input type="text" value="'+content+'" onkeyup="input_integer(this)" onafterpaste="input_integer(this)"/>';
+                if(type == 'integer'){
+                    var html = '<input type="text" value="'+content+'" onkeyup="input_integer(this)" onafterpaste="input_integer(this)"/>';
+                }else if(type == 'url'){
+                    var html = '<input type="url" value="'+content+'"/>';
+                }
+
                 $this.html(html);
 
                 var $input = $this.find('input');
@@ -541,7 +553,7 @@
 
                     var new_content = $this.val();
                     var origin_value = $this.data('origin-value');
-                    if(parseFloat(new_content) != parseFloat(origin_value)){
+                    if(new_content != origin_value){
                         $.ajax({
                             type: "POST",
                             url: url,
