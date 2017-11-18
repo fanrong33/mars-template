@@ -32,7 +32,6 @@
 
             background: #fc0d1b;
         }
-
 </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -95,12 +94,12 @@
                     
                     <div class="list-meta">
                         <div class="list-action">
-                            <a class="btn btn-primary" href="form.html"><i class="glyphicon glyphicon-plus" style="width: 14px; height: 14px;"></i> 添加移动应用</a>
+                            <a class="btn btn-primary" href="form.html"><i class="glyphicon glyphicon-plus" style="width: 14px; height: 14px;"></i> 添加Offer</a>
                         </div>
                         <div class="list-filter">
                             <form id="form" action="" method="GET">
                                 <div class="input-group inline-block" style="width: 250px; vertical-align: middle;">
-                                    <input class="form-control" id="keyword" name="keyword" value="" type="text" placeholder="搜索应用名称和ID" autocomplete="off" onkeydown="enter_press(item_manager.get_item_list);" style="width: 210px;font-size: 12px;">
+                                    <input class="form-control" id="keyword" name="keyword" value="" type="text" placeholder="搜索Offer名称和ID" autocomplete="off" onkeydown="enter_press(item_manager.get_item_list);" style="width: 210px;font-size: 12px;">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button" onclick="item_manager.get_item_list();"><i class="glyphicon glyphicon-search" style="width: 14px;height: 14px;color: #999;"></i></button>
                                     </span>
@@ -137,7 +136,7 @@
                                 </th>
                                 <th>名称</th>
                                 <th style="width:120px;">平台</th>
-                                <th style="width:140px;"><span class="sort " data-order-by="create_time">创建日期</span><!-- .desc .asc --></th>
+                                <th style="width:100px;"><span class="sort " data-order-by="weight">权重</span><!-- .desc .asc --></th>
                                 <th style="width:100px;">
                                     联盟状态 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="right" title="代表应用是否可以正常请求百度联盟广告。初始状态为待审核，审核通过后即可正常请求百度联盟广告。">?</i>
                                 </th>
@@ -146,16 +145,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="page_24">
+                            <tr id="item_24">
                                 <td style="text-align: center;">
                                     <input type="checkbox" name="id[]" value="1" onclick="select_one(this, '#page_list tbody', '#select_all_checkbox', toggle_btn_display_callback)">
                                 </td>
                                 <td>
-                                    <p><a href="">测试应用</a></p>
-                                    <span class="text-muted">ID: 823323</span>
+                                    <p><a href="">App Download - Toutiao - iOS(CN)</a></p>
+                                    <span class="text-muted">ID: 823324</span>
                                 </td>
                                 <td><i class="iconfont icon-apple" style="font-size: 20px;color: #333;"></i></td>
-                                <td>2016-12-21</td>
+                                <td class="j-editable" data-id="24" data-field="weight" data-url="update_property.json">100</td>
                                 <td><span class="text-success">通过</span></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004" checked ></td>
                                 <td>
@@ -168,16 +167,16 @@
                                     <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
                                 </td>
                             </tr>
-                            <tr id="page_25">
+                            <tr id="item_25">
                                 <td style="text-align: center;">
                                     <input type="checkbox" name="id[]" value="2" onclick="select_one(this, '#page_list tbody', '#select_all_checkbox', toggle_btn_display_callback)">
                                 </td>
                                 <td>
-                                    <p><a href="">测试应用2</a></p>
-                                    <span class="text-muted">ID: 823323</span>
+                                    <p><a href="">App Download - Xigua Video(西瓜视频) - iOS(CN)</a></p>
+                                    <span class="text-muted">ID: 823325</span>
                                 </td>
                                 <td><i class="iconfont icon-android" style="font-size: 22px;color: #97C03C;"></i></td>
-                                <td>2016-12-21</td>
+                                <td class="j-editable" data-id="25" data-field="weight" data-url="update_property.json">99</td>
                                 <td>未通过 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="bottom" title="拒绝理由：应用信息填写不完整或财务信息未通过审核，请在财务信息通过审核后完善信息，重新编辑发起联盟审核。">?</i></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004"></td>
                                 <td>
@@ -240,7 +239,7 @@
                     <li><a href="validate.html">表单验证</a></li>
                     <li><a href="dropzone.html">文件上传</a></li>
                     <li><a href="simditor.html">富编辑器</a></li>
-<li><a href="clipboard.html">剪切板</a></li>
+                    <li><a href="clipboard.html">剪切板</a></li>
                 </ul><!-- .sidebar-child-menu -->
             </li><!-- sidebar-menu-item -->
             <li class="sidebar-menu-item sidebar-menu-item-has-child">
@@ -357,7 +356,10 @@
     <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/switchery/0.8.2/switchery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-validate/1.16.0/additional-methods.min.js"></script>
     <script src="//cdn.headwayapp.co/widget.js"></script>
+    <script src="home/js/app.js"></script>
     <script>
     var HW_config = {
         selector: ".changelog-badge", // CSS selector where to inject the badge
@@ -491,6 +493,89 @@
             $("#codeModal pre").addClass('user-select-none');
         });
 
+
+        /**
+         * 行内可编辑控件
+         * @param 
+         * @author fanrong33
+         * @version 1.0.0 build 20171118
+         */
+        $(".j-editable").click(function() {
+            var $this = $(this);
+
+            var id    = $this.data('id');
+            var field = $this.data('field');
+            var url   = $this.data('url');
+            if(typeof(id) == 'undefined'){
+                alert('data-id is missing');
+            }
+            if(typeof(field) == 'undefined'){
+                alert('data-field is missing');
+            }
+            if(typeof(url) == 'undefined'){
+                alert('data-url is missing');
+            }
+
+            if(!$this.hasClass('editor')){
+                $this.addClass('editor');
+                var content = $.trim($this.text());
+                var html = '<input type="text" value="'+content+'" onkeyup="input_integer(this)" onafterpaste="input_integer(this)"/>';
+                $this.html(html);
+
+                var $input = $this.find('input');
+                $input.data('origin-value', content);
+                $input.get(0).select();
+                $input.keyup(function(event){
+                    var event = event || window.event;
+                    if(event.keyCode == 13){
+                        $(event.target).trigger('blur');
+                    }
+                })
+                $input.blur(function(event){
+                    var $this = $(event.target);
+                    var $parent = $this.parent();
+
+                    var id    = $parent.data('id');
+                    var url   = $parent.data('url');
+                    var field = $parent.data('field');
+
+                    var new_content = $this.val();
+                    var origin_value = $this.data('origin-value');
+                    if(parseFloat(new_content) != parseFloat(origin_value)){
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            dataType: "json",
+                            data: { id: id, field: field, new_value: new_content },
+                            beforeSend: function() {
+                            },
+                            success: function(json){
+                                if(json.status == 1){
+
+                                    $("#item_"+id).addClass('bg-fade-out bg-success');
+                                    setTimeout(function(){
+                                        $("#item_"+id).removeClass('bg-fade-out bg-success');
+                                    }, 3000);
+
+                                }else{
+
+                                    $("#item_"+id).addClass('bg-fade-out bg-error');
+                                    setTimeout(function(){
+                                        $("#item_"+id).removeClass('bg-fade-out bg-error');
+                                    }, 3000);
+
+                                    toastr.error(json.info);
+
+                                    $parent.html(origin_value);
+                                }
+                            }
+                        })
+                    }
+                    $this.parent().removeClass('editor');
+                    $this.parent().html(new_content);
+                })
+            }
+        });
 
 
         if(window.location.hash){
