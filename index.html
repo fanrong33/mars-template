@@ -129,7 +129,7 @@
                     </div><!-- .list-meta -->
 
 
-                    <table class="table table-hover" id="page_list">
+                    <table class="table table-hover table-striped" id="page_list">
                         <thead>
                             <tr>
                                 <th style="width: 36px; text-align: center;">
@@ -142,7 +142,7 @@
                                     联盟状态 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="right" title="代表应用是否可以正常请求百度联盟广告。初始状态为待审核，审核通过后即可正常请求百度联盟广告。">?</i>
                                 </th>
                                 <th style="width:100px;">启用状态</th>
-                                <th style="width:150px;">操作</th>
+                                <th style="width:160px;">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -159,6 +159,10 @@
                                 <td><span class="text-success">通过</span></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004" checked ></td>
                                 <td>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#codeModal" 
+                                            data-id="sp-adx-123-320-50"
+                                            data-platform="ios">代码</a>
+                                    <span class="divider">|</span>
                                     <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a>
                                     <span class="divider">|</span>
                                     <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
@@ -177,6 +181,10 @@
                                 <td>未通过 <i href="javascript:;" class="tooltip-help" data-toggle="tooltip" data-container="body" data-placement="bottom" title="拒绝理由：应用信息填写不完整或财务信息未通过审核，请在财务信息通过审核后完善信息，重新编辑发起联盟审核。">?</i></td> 
                                 <td><input type="checkbox" class="j_switch" data-offer-id="600004"></td>
                                 <td>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#codeModal" 
+                                            data-id="sp-adx-320-300-250"
+                                            data-platform="android">代码</a>
+                                    <span class="divider">|</span>
                                     <a href="/page/edit/id/24.html" style="color: #12bfcd;">修改</a>
                                     <span class="divider">|</span>
                                     <a href="javascript:;" onclick="delete_page(24)" style="color: #ca0808;">删除</a>
@@ -304,6 +312,47 @@
         </ul>
     </div><!-- .sidebar -->
     
+    <!-- Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="codeModal" aria-labelledby="codeModalLabel">
+        <div class="modal-dialog" role="document" style="width: 660px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="codeModalLabel">GET YOU CODE</h4>
+                </div>
+                <div class="modal-body">
+                    <p>JS Code</p>
+                    <pre class="user-select-none mb0">&lt;script&gt;
+(function() { 
+ var id = '#id#'; 
+ var params = {
+    'clickid': '{CLICK_ID}', // replace traffic souce token, delete if no use
+    #platform_token#
+ };
+ document.write('&lt;a style="display:none!important" id="'+id+'"&gt;&lt;/a&gt;'); 
+ (function(window, document, script, ga, a, m) { 
+  window.SpAdxObject = ga; 
+  window[ga] = window[ga] || function() { 
+  (window[ga].q = window[ga].q || []).push(arguments) 
+  }, 
+  a = document.createElement(script), 
+  m = document.getElementsByTagName(script)[0]; 
+  a.async = 1; 
+  a.src = 'http://jstag.fanrong.com/jstag/js/2.min.js'; 
+  m.parentNode.insertBefore(a, m); 
+ })(window, document, 'script', 'SpAdx'); 
+ SpAdx('load', id, params); 
+})();
+&lt;/script&gt;</pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
 
     <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -317,6 +366,8 @@
     Headway.init(HW_config);
     </script>
     <script>
+    var original_modal_body = $("#codeModal .modal-body").html();
+
     $(document).ready(function(){
 
         // 绑定折叠侧边菜单栏事件
@@ -412,6 +463,32 @@
                     }
                 }
             });
+        });
+
+
+        $('#codeModal').on('show.bs.modal', function (event) {
+            var $button     = $(event.relatedTarget);
+            var id = $button.data('id');
+            var platform = $button.data('platform');
+            if(platform == 'ios'){
+                var platform_token = "'idfa': '{IDFA}'";
+            }else{
+                var platform_token = "'gaid': '{GAID}'";
+            }
+
+            var html = original_modal_body;//$("#modal_body").html();
+            
+            html = html.replace(new RegExp("#id#", 'g'), id);
+            html = html.replace(new RegExp("#platform_token#", 'g'), platform_token);
+            
+
+            $("#codeModal .modal-body").html(html);
+
+            $("#codeModal pre").removeClass('user-select-none');
+        });
+
+        $('#codeModal').on('hidden.bs.modal', function (event) {
+            $("#codeModal pre").addClass('user-select-none');
         });
 
 
