@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.33 build 20171118
+ * @version 1.0.34 build 20171122
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -137,6 +137,15 @@ button:hover{
     border-radius: 0;
 }
 .btn-primary{
+    background-color: #12bdce;
+    border-color: #12bdce;
+}
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary.focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open>.dropdown-toggle.btn-primary{
     background-color: #12bdce;
     border-color: #12bdce;
 }
