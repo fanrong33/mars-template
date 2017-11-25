@@ -1,7 +1,7 @@
 /**
  * mars后台模板
  * @author 蔡繁荣，肖代敏
- * @version 1.0.34 build 20171122
+ * @version 1.0.35 build 20171125
  * @tool http://tool.oschina.net/jscompress
  */
 
@@ -412,7 +412,7 @@ button:hover{
 /**
  * 侧边菜单栏
  * @author 蔡繁荣
- * @version 1.0.0 build 20161226
+ * @version 1.0.1 build 20171125
  */
 .sidebar{
     position: fixed;
@@ -423,7 +423,7 @@ button:hover{
     width: 170px;
     border: none;
     
-    font-size: 13px;
+    /*font-size: 13px;*/
     background-color: #e8e8e8;
     overflow: visible;
 }
@@ -489,7 +489,7 @@ button:hover{
     height: 48px;
 
     color: #ccc;
-    font-size: 12px;
+    /*font-size: 12px;*/
     line-height: 48px;
     text-align: center;    
 
@@ -570,7 +570,7 @@ button:hover{
 .navigator-collapse .sidebar .sidebar-menu-item-has-child:hover .sidebar-child-menu {
     display: block;
     position: absolute;
-    top: 48px;
+    top: 50px;
     left: 55px;
     width: 170px;
 }
@@ -683,7 +683,7 @@ footer{
     vertical-align: middle;
 }
 .list-filter .input-group input.form-control{
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 .list-filter .input-group .input-group-btn i{
     width: 14px;height: 14px;color: #999;
@@ -696,7 +696,7 @@ footer{
  * @version 1.0.2 build 20170209
  */
 .table{
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 .table>thead>tr>th{
     background-color: #f2f2f2;
@@ -747,7 +747,7 @@ footer{
  */
 .pagination{
     border-radius: 0;
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 .pagination>li:first-child>a, .pagination>li:first-child>span{
     border-radius: 0;
@@ -807,7 +807,7 @@ footer{
 }
 .modal-footer .btn{
     padding: 6px 20px;
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 
 
