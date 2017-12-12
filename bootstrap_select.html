@@ -79,10 +79,10 @@
                                 <option data-tokens="Canada CA" value="CA">Canada</option>
                                 <option data-tokens="China CN" value="CN" selected>China</option>
                                 <option data-tokens="Taiwan TW" value="TW">Taiwan</option>
-                                <option data-tokens="France" value="">France</option>
-                                <option data-tokens="Brazil" value="">Brazil</option>
-                                <option data-tokens="England" value="">England</option>
-                                <option data-tokens="Norway" value="">Norway</option>
+                                <option data-tokens="France" value="FR">France</option>
+                                <option data-tokens="Brazil" value="BZ">Brazil</option>
+                                <option data-tokens="England" value="EN">England</option>
+                                <option data-tokens="Norway" value="NW">Norway</option>
                             </select>
                         </div>
                     </div>
@@ -243,6 +243,14 @@
 
         $('.selectpicker').on('hidden.bs.select', function(e){
             // do something...
+        });
+
+        $('.selectpicker').on('changed.bs.select', function (e) {
+            var $this = $(e.target);
+            var country_code = $this.val();
+            console.info(country_code);
+            // $("#country_code").val(country_code);
+            // $("#offer_form").submit();
         });
     });
     </script>
