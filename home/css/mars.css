@@ -781,7 +781,8 @@ footer{
 }
 .modal-content{
     border-radius: 0;
-    border:1px solid #ddd;
+    /*border:1px solid #ddd;*/
+    border: none;
     box-shadow:none;
 }
 .modal-content .modal-header {
